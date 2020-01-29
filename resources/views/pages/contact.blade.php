@@ -7,22 +7,22 @@
 
     <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee:200,300,400|Playfair+Display:400,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/animate.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/aos.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/jquery.timepicker.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/magnific-popup.css') }}">
     
-    <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ URL::asset('fonts/ionicons/css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('fonts/fontawesome/css/font-awesome.min.css') }}">
 
     
 
 
     <!-- Theme Style -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
   </head>
   <body>
     
@@ -46,12 +46,10 @@
                   <div class="row full-height align-items-center">
                     <div class="col-md-6 mx-auto text-center">
                       <ul class="list-unstyled menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="rooms.html">Rooms</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="blog.html">Events</a></li>
-                        <li class="active"><a href="contact.html">Contact</a></li>
-                        <li><a href="reservation.html">Reservation Form</a></li>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="/gallery">Rooms</a></li>
+                        <li class="active"><a href="/contact">Contact</a></li>
+                        <li><a href="/reserve">Reservation Form</a></li>
                       </ul>
                     </div>
                   </div>
@@ -284,22 +282,22 @@
       </div>
     </footer>
     
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="{{ URL::asset('js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ URL::asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
+    <script src="{{ URL::asset('js/popper.min.js') }}"></script>
+    <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ URL::asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ URL::asset('js/jquery.stellar.min.js') }}"></script>
+    <script src="{{ URL::asset('js/jquery.magnific-popup.min.js') }}"></script>
     
     
-    <script src="js/aos.js"></script>
+    <script src="{{ URL::asset('js/aos.js') }}"></script>
     
-    <script src="js/bootstrap-datepicker.js"></script> 
-    <script src="js/jquery.timepicker.min.js"></script> 
+    <script src="{{ URL::asset('js/bootstrap-datepicker.js') }}"></script> 
+    <script src="{{ URL::asset('js/jquery.timepicker.min.js') }}"></script> 
 
     
 
-    <script src="js/main.js"></script>
+    <script src="{{ URL::asset('js/main.js') }}"></script>
   </body>
 </html>
