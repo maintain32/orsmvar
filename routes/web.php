@@ -15,3 +15,5 @@ Route::get('/', 'PagesController@showHomePage');
 Route::get('/contact', 'PagesController@showContactPage');
 Route::get('/reserve', 'PagesController@showReservePage');
 Route::get('/gallery', 'PagesController@showGalleryPage');
+
+Route::post('/server', 'ServerController@saveReservation');

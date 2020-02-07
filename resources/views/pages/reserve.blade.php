@@ -4,7 +4,7 @@
     <title>Casa Hotel Colorlib Website Template</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee:200,300,400|Playfair+Display:400,700" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}">
@@ -14,18 +14,18 @@
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-datepicker.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/jquery.timepicker.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/magnific-popup.css') }}">
-    
+
     <link rel="stylesheet" href="{{ URL::asset('fonts/ionicons/css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('fonts/fontawesome/css/font-awesome.min.css') }}">
 
-    
+
 
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
   </head>
   <body>
-    
+
     <header class="site-header">
       <div class="container-fluid">
         <div class="row">
@@ -79,39 +79,39 @@
     </section>
     <!-- END section -->
 
-    
+
     <section class="section contact-section" id="next">
       <div class="container">
         <div class="row">
           <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
-            
+
             <form action="#" method="post" class="bg-white p-md-5 p-4 mb-5 border">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="text-black font-weight-bold" for="name">Name</label>
-                  <input type="text" id="name" class="form-control ">
+                  <input type="text" name="name" id="name" class="form-control ">
                 </div>
                 <div class="col-md-6 form-group">
                   <label class="text-black font-weight-bold" for="phone">Phone</label>
-                  <input type="text" id="phone" class="form-control ">
+                  <input type="text" name="phone" id="phone" class="form-control ">
                 </div>
               </div>
-          
+
               <div class="row">
                 <div class="col-md-12 form-group">
                   <label class="text-black font-weight-bold" for="email">Email</label>
-                  <input type="email" id="email" class="form-control ">
+                  <input name="email" type="email" id="email" class="form-control ">
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-6 form-group">
                   <label class="text-black font-weight-bold" for="checkin_date">Date Check In</label>
-                  <input type="text" id="checkin_date" class="form-control">
+                  <input type="text" name="checkin_date" id="checkin_date" class="form-control">
                 </div>
                 <div class="col-md-6 form-group">
                   <label class="text-black font-weight-bold" for="checkout_date">Date Check Our</label>
-                  <input type="text" id="checkout_date" class="form-control">
+                  <input type="text" name="checkout_date" id="checkout_date" class="form-control">
                 </div>
               </div>
 
@@ -120,11 +120,11 @@
                   <label for="adults" class="font-weight-bold text-black">Adults</label>
                   <div class="field-icon-wrap">
                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                    <select name="" id="adults" class="form-control">
-                      <option value="">1</option>
-                      <option value="">2</option>
-                      <option value="">3</option>
-                      <option value="">4+</option>
+                    <select name="adults" id="adults" class="form-control">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="50">50</option>
                     </select>
                   </div>
                 </div>
@@ -132,17 +132,17 @@
                   <label for="children" class="font-weight-bold text-black">Children</label>
                   <div class="field-icon-wrap">
                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                    <select name="" id="children" class="form-control">
-                      <option value="">1</option>
-                      <option value="">2</option>
-                      <option value="">3</option>
-                      <option value="">4+</option>
+                    <select name="children" id="children" class="form-control">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="50">50</option>
                     </select>
                   </div>
                 </div>
               </div>
 
-              
+
 
               <div class="row mb-4">
                 <div class="col-md-12 form-group">
@@ -152,7 +152,7 @@
               </div>
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="submit" value="Reserve Now" class="btn btn-primary text-white py-3 px-5">
+                  <input id="btnReserve" value="Reserve Now" class="btn btn-primary text-white py-3 px-5">
                 </div>
               </div>
             </form>
@@ -170,7 +170,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- END section -->
     <section class="section testimonial-section bg-light">
       <div class="container">
@@ -181,10 +181,10 @@
         </div>
 
 
-        
+
         <div class="row">
           <div class="js-carousel-2 owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
-            
+
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
                 <img src="img/person_1.jpg" alt="Image placeholder" class="rounded-circle mx-auto">
@@ -194,7 +194,7 @@
                 <p>&ldquo;Et quidem, impedit eum fugiat excepturi iste aliquid suscipit, tempore, delectus rem soluta voluptatem distinctio sed dolores, magni fugit nemo cum expedita. Totam a accusantium sunt aut autem placeat officia.&rdquo;</p>
               </blockquote>
               <p><em>&mdash; Jean Smith</em></p>
-            </div> 
+            </div>
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
@@ -227,7 +227,7 @@
                 <p>&ldquo;Et quidem, impedit eum fugiat excepturi iste aliquid suscipit, tempore, delectus rem soluta voluptatem distinctio sed dolores, magni fugit nemo cum expedita. Totam a accusantium sunt aut autem placeat officia.&rdquo;</p>
               </blockquote>
               <p><em>&mdash; Jean Smith</em></p>
-            </div> 
+            </div>
 
             <div class="testimonial text-center slider-item">
               <div class="author-image mb-3">
@@ -256,7 +256,7 @@
 
       </div>
     </section>
-    
+
     <section class="section">
       <div class="container" >
         <div class="row align-items-center">
@@ -300,20 +300,20 @@
             <form action="#" class="footer-newsletter">
               <div class="form-group">
                 <input type="email" class="form-control" placeholder="Your email...">
-                <button type="submit" class="btn"><span class="fa fa-paper-plane"></span></button>
+                <button class="btn"><span class="fa fa-paper-plane"></span></button>
               </div>
             </form>
           </div>
         </div>
         <div class="row bordertop pt-5">
           <p class="col-md-6 text-left">
-            
+
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ion-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            
+
           </p>
-            
+
           <p class="col-md-6 text-right social">
             <a href="#"><span class="fa fa-tripadvisor"></span></a>
             <a href="#"><span class="fa fa-facebook"></span></a>
@@ -322,7 +322,7 @@
         </div>
       </div>
     </footer>
-    
+
     <script src="{{ URL::asset('js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ URL::asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
     <script src="{{ URL::asset('js/popper.min.js') }}"></script>
@@ -330,15 +330,22 @@
     <script src="{{ URL::asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ URL::asset('js/jquery.stellar.min.js') }}"></script>
     <script src="{{ URL::asset('js/jquery.magnific-popup.min.js') }}"></script>
-    
-    
-    <script src="{{ URL::asset('js/aos.js') }}"></script>
-    
-    <script src="{{ URL::asset('js/bootstrap-datepicker.js') }}"></script> 
-    <script src="{{ URL::asset('js/jquery.timepicker.min.js') }}"></script> 
 
-    
+
+    <script src="{{ URL::asset('js/aos.js') }}"></script>
+
+    <script src="{{ URL::asset('js/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ URL::asset('js/jquery.timepicker.min.js') }}"></script>
+
+    <script type="text/javascript">
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+    </script>
 
     <script src="{{ URL::asset('js/main.js') }}"></script>
+    <script src="{{ URL::asset('js/reserve.js') }}"></script>
   </body>
 </html>
