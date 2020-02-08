@@ -54,6 +54,7 @@
 
 <script src="{{ URL::asset('js/lib/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ URL::asset('js/lib/jquery-migrate-3.0.1.min.js') }}"></script>
+
 <script src="{{ URL::asset('js/lib/popper.min.js') }}"></script>
 <script src="{{ URL::asset('js/lib/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('js/lib/owl.carousel.min.js') }}"></script>
@@ -63,6 +64,7 @@
 <script src="{{ URL::asset('js/lib/aos.js') }}"></script>
 <script src="{{ URL::asset('js/lib/bootstrap-datepicker.js') }}"></script>
 <script src="{{ URL::asset('js/lib/jquery.timepicker.min.js') }}"></script>
+
 <script type="text/javascript">
   $.ajaxSetup({
     headers: {

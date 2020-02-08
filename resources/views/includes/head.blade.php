@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="{{ URL::asset('css/lib/bootstrap-datepicker.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/lib/jquery.timepicker.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/lib/magnific-popup.css') }}">
+
 <link rel="stylesheet" href="{{ URL::asset('fonts/ionicons/css/ionicons.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('fonts/fontawesome/css/font-awesome.min.css') }}">
 

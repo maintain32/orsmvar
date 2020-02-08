@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+
   let oReserve = {
     init : function(){
         this.saveReservation('#btnReserve');
@@ -17,6 +19,7 @@ $(document).ready(function() {
           url:  "/server",
           data: $('form').serialize(),
           success: function(data) {
+            console.log(data);
             Swal.fire({
                 title: data['return_title'],
                 text: data['return_msg'],
