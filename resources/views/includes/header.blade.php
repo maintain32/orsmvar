@@ -1,34 +1,22 @@
-<header class="site-header">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-4 site-logo" data-aos="fade"><a href="index.html"><em>Casahotel</em></a></div>
-      <div class="col-8">
-
-
-        <div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <!-- END menu-toggle -->
-
-        <div class="site-navbar js-site-navbar">
-          <nav role="navigation">
-            <div class="container">
-              <div class="row full-height align-items-center">
-                <div class="col-md-6 mx-auto text-center">
-                  <ul class="list-unstyled menu">
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="/gallery">Rooms</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li class="active"><a href="/reserve">Reservation Form</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ url ('/') }}">Merlita's Venue and Resort</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a href="{{ url ('/') }}">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/reserve">Reservation</a></li>
+      </ul>
     </div>
   </div>
-</header>
+</nav>
