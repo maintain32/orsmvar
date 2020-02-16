@@ -148,6 +148,34 @@ a.simpleCart_empty {
 	-o-background-size:cover;
 	-ms-background-size:cover;
 }
+.banner-4{
+	background:url(http://orsmvar.local.com/img/resort%204.jpg) no-repeat center;
+	min-height:700px;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	-ms-background-size:cover;
+}
+
+.banner-5{
+	background:url(http://orsmvar.local.com/img/resort%2010.jpg) no-repeat center;
+	min-height:700px;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	-ms-background-size:cover;
+}
+.banner-6{
+	background:url(http://orsmvar.local.com/img/resort%209.jpg) no-repeat center;
+	min-height:700px;
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	-ms-background-size:cover;
+}
 /*------------------ Slider Part starts Here----------*/
 .callbacks_container {
   position: relative;
@@ -1035,7 +1063,7 @@ ul.size li a:hover {
 /*--end-single--*/
 /*---- responsive-design -----*/
 @media(max-width:1440px){
-.banner-1,.banner-2 ,.banner-3{
+.banner-1,.banner-2 ,.banner-3, .banner-4, .banner-5, .banner-6{
 	min-height: 650px;
 }
 .bnr-one,.bnr-two{
@@ -1043,7 +1071,7 @@ ul.size li a:hover {
 }
 }
 @media(max-width:1366px){
-.banner-1, .banner-2, .banner-3 {
+.banner-1, .banner-2, .banner-3, .banner-4, .banner-5, .banner-6 {
 	min-height: 530px;
 }
 .callbacks_tabs {
@@ -1068,7 +1096,7 @@ ul.size li a:hover {
 }
 }
 @media(max-width:1024px){
-.banner-1, .banner-2, .banner-3 {
+.banner-1, .banner-2, .banner-3, .banner-4, .banner-5, .banner-6{
 	min-height: 470px;
 }
 .details-left-info h3 {
@@ -1259,7 +1287,7 @@ a.simpleCart_empty {
 .header-bottom {
 	padding: 8px 0px 3px 0px;
 }
-.banner-1, .banner-2, .banner-3 {
+.banner-1, .banner-2, .banner-3, .banner-4, .banner-5, .banner-6 {
 	min-height: 380px;
 }
 .callbacks_tabs a:after {
@@ -1439,7 +1467,7 @@ ul.unit li span {
 .top-header {
 	padding: 1.7em 0px 2px 0px;
 }
-.banner-1, .banner-2, .banner-3 {
+.banner-1, .banner-2, .banner-3, .banner-4, .banner-5, .banner-6 {
 	min-height: 300px;
 }
 .callbacks_tabs a:after {
@@ -1633,7 +1661,7 @@ a.simpleCart_empty {
 .memenu>li.showhide {
 	height: 45px !important;
 }
-.banner-1, .banner-2, .banner-3 {
+.banner-1, .banner-2, .banner-3, .banner-4, .banner-5, .banner-6 {
 	min-height: 230px;
 }
 .callbacks_tabs a:after {
@@ -1775,7 +1803,7 @@ a.simpleCart_empty {
 	padding: 7px 25px !important;
 	font-size: 13px;
 }
-.banner-1, .banner-2, .banner-3 {
+.banner-1, .banner-2, .banner-3, .banner-4, .banner-5, .banner-6 {
 	min-height: 180px;
 }
 .callbacks_tabs a:after {
