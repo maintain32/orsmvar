@@ -11,11 +11,9 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="{{ url ('/') }}">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="/contact">Contact Us</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/gallery">Gallery</a></li>
-        <li><a href="/reserve">Reservation</a></li>
+        <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ url ('/') }}">Home</a></li>
+        <li class="{{ Request::is('reserve') ? 'active' : '' }}"><a href="/reserve">Reservation</a></li>
+        <li class="{{ Request::is('about') ? 'active' : '' }}"><a href="/about">About Us</a></li>
       </ul>
     </div>
   </div>

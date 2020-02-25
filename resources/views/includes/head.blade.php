@@ -17,7 +17,7 @@
 <link href="/css/lib/memenu.css" rel="stylesheet" type="text/css" media="all" />
 
 <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee:200,300,400|Playfair+Display:400,700" rel="stylesheet">
-<link rel="stylesheet" href="{{ URL::asset('css/lib/bootstrap.css') }}">
+<link rel="stylesheet" href="{{ URL::asset('css/lib/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all">
 <link rel="stylesheet" href="{{ URL::asset('css/lib/animate.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/lib/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/lib/aos.css') }}">
