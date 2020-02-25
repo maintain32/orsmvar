@@ -1,4 +1,9 @@
 @extends('layout.admin')
+
+@section('cssfiles')
+    <link href="/js/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+@stop
+
 @section('content')
 
 <!-- start page content -->
@@ -473,4 +478,10 @@
     </div>
 </div>
 <!-- end page content -->
+@stop
+
+@section('jsfiles')
+    <script src="/js/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/js/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js"></script>
+    <script src="/js/admin/pages/table/table_data.js"></script>
 @stop
