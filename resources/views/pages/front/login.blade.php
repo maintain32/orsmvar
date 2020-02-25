@@ -35,17 +35,17 @@
     <script type="text/javascript" src="js/easing.js"></script>
     <script type="text/javascript">
                         jQuery(document).ready(function($) {
-                            $(".scroll").click(function(event){     
+                            $(".scroll").click(function(event){
                                 event.preventDefault();
                                 $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
                             });
                         });
-                    </script>   
+                    </script>
     <!-- start menu -->
     <script src="js/simpleCart.min.js"> </script>
     <link href="/css/lib/memenu.css" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src="js/memenu.js"></script>
-    <script>$(document).ready(function(){$(".memenu").memenu();});</script>             
+    <script>$(document).ready(function(){$(".memenu").memenu();});</script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -80,7 +80,6 @@
                                 </div>
                                 <div class="address">
                                   <input type="submit" value="Login" name="btnLogin" class="btn btn-lg btn-block" onClick='myFunction()'>
-                                  <a class="signup" href="register.php">Not registered? Sign up here.</a>
                                 </div>
                           </fieldset>
                         </form>

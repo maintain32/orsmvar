@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
     <head>
-        @include('includes.head')
+        @include('includes.front.head')
     </head>
     <body>
-        @include('includes.header')
+        @include('includes.front.header')
         @yield('content')
-        @include('includes.footer')
+        @include('includes.front.footer')
         @yield('jsfiles')
     </body>
 </html>
