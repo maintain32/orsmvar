@@ -19,7 +19,7 @@
               </div>
               <div class="col-md-6 form-group">
                 <label class="text-black font-weight-bold" for="phone">Phone</label>
-                <input type="number" name="phone" id="phone" onKeyPress="if(this.value.length==11) return false;" class="form-control " required>
+                <input type="text " name="phone" id="phone" onKeyPress="if(this.value.length==11) return false;" class="form-control " required>
               </div>
             </div>
 
@@ -31,13 +31,16 @@
             </div>
 
             <div class="row">
-              <div class="col-md-6 form-group">
-                <label class="text-black font-weight-bold" for="checkin_date">Date Check In</label>
-                <input type="text" name="checkin_date" id="checkin_date" class="form-control" required readonly="readonly">
+              <div class='col-md-6 form-group'>
+                  <label for="adults" class="font-weight-bold text-black">Check-in date</label>
+                    <input type='text' class="form-control" name="checkin_date" id="checkin_date" autocomplete="off" required/>
               </div>
-              <div class="col-md-6 form-group">
-                <label class="text-black font-weight-bold" for="checkout_date">Date Check Out</label>
-                <input type="text" name="checkout_date" id="checkout_date" class="form-control" required readonly="readonly">
+
+              <div class='col-md-6'>
+                <div class="form-group">
+                  <label for="adults" class="font-weight-bold text-black">Check-out date</label>
+                    <input type='text' class="form-control" name="checkout_date" id="checkout_date" autocomplete="off" required/>
+                </div>
               </div>
             </div>
 

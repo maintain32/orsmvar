@@ -2,10 +2,19 @@
 <link href="/css/lib/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="shortcut icon" type="image/x-icon" href="img/Icon.ico" />
 
-<script src="/js/lib/jquery-1.11.0.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
 
 
-<link href="/css/lib/style.css" rel="stylesheet" type="text/css" media="all" />	
+
+<link href="/css/lib/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,8 +30,6 @@
 <link rel="stylesheet" href="{{ URL::asset('css/lib/animate.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/lib/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/lib/aos.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('css/lib/bootstrap-datepicker.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('css/lib/jquery.timepicker.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/lib/magnific-popup.css') }}">
 
 <link rel="stylesheet" href="{{ URL::asset('fonts/ionicons/css/ionicons.min.css') }}">

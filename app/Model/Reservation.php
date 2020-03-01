@@ -18,7 +18,7 @@ class Reservation extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'ID';
 
     /**
      * Indicates if the model should be timestamped.
@@ -28,12 +28,10 @@ class Reservation extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id',
+        'ID',
         'reservation_ID',
         'name',
         'phone',
-        'email',
-        'last_name',
         'email',
         'checkin_date',
         'checkout_date',

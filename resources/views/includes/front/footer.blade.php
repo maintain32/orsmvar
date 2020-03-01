@@ -82,7 +82,7 @@
 							  			containerID: 'toTop', // fading element id
 										containerHoverID: 'toTopHover', // fading element hover id
 										scrollSpeed: 1200,
-										easingType: 'linear' 
+										easingType: 'linear'
 							 		};
 									*/
 
@@ -97,8 +97,6 @@
 <!--end-footer-text-->
 <a href="#" id="toTop">To Top</a>
 
-<script src="{{ URL::asset('js/lib/jquery-3.3.1.min.js') }}"></script>
-<script src="{{ URL::asset('js/lib/jquery-migrate-3.0.1.min.js') }}"></script>
 
 <script src="{{ URL::asset('js/lib/popper.min.js') }}"></script>
 <script src="{{ URL::asset('js/lib/bootstrap.min.js') }}"></script>
@@ -107,8 +105,6 @@
 <script src="{{ URL::asset('js/lib/jquery.magnific-popup.min.js') }}"></script>
 <script src="{{ URL::asset('js/lib/sweetalert2.all.min.js') }}"></script>
 <script src="{{ URL::asset('js/lib/aos.js') }}"></script>
-<script src="{{ URL::asset('js/lib/bootstrap-datepicker.js') }}"></script>
-<script src="{{ URL::asset('js/lib/jquery.timepicker.min.js') }}"></script>
 
 <script type="text/javascript">
 	$.ajaxSetup({
