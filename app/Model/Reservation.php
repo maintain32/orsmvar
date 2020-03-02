@@ -11,31 +11,45 @@ class Reservation extends Model
      *
      * @var string
      */
-    protected $table = 'tbl_reservation';
+    protected $table = 'bookings';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'ID';
+    protected $primaryKey = 'booking_id';
 
     /**
      * Indicates if the model should be timestamped.
      *
      * @var bool
      */
-    public $timestamps = false;
+    public $timestamps = true;
+
+    const CREATED_AT = 'booking_date';
+    const UPDATED_AT = 'booking_update';
 
     protected $fillable = [
-        'ID',
-        'reservation_ID',
+        'booking_id',
+        'booking_date',
+        'booking_code',
         'name',
         'phone',
         'email',
         'checkin_date',
         'checkout_date',
-        'adults',
-        'children'
+        'booking_time',
+        'total_guest',
+        'message',
+        'total_rate',
+        'reservation_fee',
+        'additional_guest',
+        'additional_guest_fee',
+        'additional_room',
+        'additional_gas',
+        'additional_refrigerator',
+        'additional_hours',
+        'grand_total',
     ];
 }

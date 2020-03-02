@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     saveReservation : function(element){
       $(element).click(function(e){
-          e.preventDefault
+          e.preventDefault();
           oReserve.sendReservationRequest();
       });
     },
@@ -16,7 +16,7 @@ $(document).ready(function() {
     sendReservationRequest : function(){
       $.ajax({
           type: "POST",
-          url:  "/server",
+          url:  "/rest/saveBooking",
           data: $('form').serialize(),
           success: function(data) {
             console.log(data);

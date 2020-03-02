@@ -20,12 +20,14 @@ class ServerController extends Controller
 
     public function saveReservation()
     {
-        $aReservationData = $this->oRequest->toArray();
-        $aValidateData = $this->validateData($aReservationData);
-        if ($aValidateData->passes())
-        {
-            $aReservationData['reservation_ID'] = CommonLibrary::randomizeReservationID(10);
-            logger($aReservationData);
+        $aData = $this->oRequest->toArray();
+        $aReservationData = $this->formatData($aData);
+
+//        $aValidateData = $this->validateData($aReservationData);
+//        if ($aValidateData->passes())
+//        {
+//            $aReservationData['booking_code'] = CommonLibrary::randomizeReservationID(10);
+//            logger($aReservationData);
             $mResult = $this->oReservationModel->insert($aReservationData);
             if ($mResult === false) {
                 return [
@@ -41,14 +43,37 @@ class ServerController extends Controller
                 'return_msg'   => 'Congratulations',
                 'icon'         => 'success'
             ];
-        }
+//        }
+//
+//        return [
+//            'bResult'      => false,
+//            'return_title' => $aValidateData->errors()->first(),
+//            'return_msg'   => 'Please fill up valid data to the necessary field',
+//            'icon'         => 'error'
+//        ];
+    }
 
-        return [
-            'bResult'      => false,
-            'return_title' => $aValidateData->errors()->first(),
-            'return_msg'   => 'Please fill up valid data to the necessary field',
-            'icon'         => 'error'
-        ];
+    private function formatData($aData)
+    {
+        logger('before : ');
+        logger($aData);
+        $aData['booking_code'] = CommonLibrary::randomizeReservationID(10);
+        $aData['message'] = nl2br($aData['message']);
+        $aData['additional_room'] = $aData['additional_room'] === 'true' ? 3000 : 0;
+        $aData['additional_gas'] = $aData['additional_gas'] === 'true' ? 300 : 0;
+        $aData['additional_refrigerator'] = $aData['additional_refrigerator'] === 'true' ? 300 : 0;
+        $aData['additional_hours'] = 0;
+        $aData['additional_guest'] = $aData['total_guest'] - 50;
+        $aData['additional_guest'] = $aData['additional_guest'] <= 0 ? 0 : $aData['additional_guest'];
+        $iAdditionalGuest = $aData['booking_time'] === 'daytime' ? 150 : 200;
+        $aData['additional_guest_fee'] = $aData['additional_guest'] * $iAdditionalGuest;
+        $iReservationRate = $aData['booking_time'] === 'daytime' ? 11000 : 13000;
+        $aData['total_rate'] = $iReservationRate + $aData['additional_guest_fee'];
+        $aData['grand_total'] = $aData['total_rate'] + $aData['additional_room'] + $aData['additional_gas'] + $aData['additional_refrigerator'];
+        $aData['reservation_fee'] =  $aData['grand_total'] * .25;
+        logger('after : ');
+        logger($aData);
+        return $aData;
     }
 
     private function validateData($aData)

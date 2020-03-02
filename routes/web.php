@@ -20,4 +20,4 @@ Route::get('/add/booking', 'PagesController@showAddBookingPage');
 Route::get('/edit/booking', 'PagesController@showEditBookingPage');
 Route::get('/view/booking', 'PagesController@showViewBookingPage');
 
-Route::post('/server', 'ServerController@saveReservation');
+Route::post('/rest/saveBooking', 'ServerController@saveReservation');
