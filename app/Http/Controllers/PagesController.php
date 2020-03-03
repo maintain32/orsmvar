@@ -2,9 +2,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\View\View;
+use App\Repository\ReservationRepository;
 
 class PagesController extends Controller
 {
+    private $oReservationModel;
+
+    public function __construct()
+    {
+        $this->oReservationModel = new ReservationRepository();
+    }
     public function showHomePage()
     {
         return view('pages.front.home');
@@ -31,6 +38,7 @@ class PagesController extends Controller
     }
     public function showViewBookingPage()
     {
-        return view('pages.admin.view-booking');
+        $booking = $this->oReservationModel->getAll();
+        return view('pages.admin.view-booking', compact('booking'));
     }
 }
