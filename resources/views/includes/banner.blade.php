@@ -17,7 +17,7 @@
 </div>
 <!--banner-ends-->
 <!--Slider-starts-->
-<script src="js/responsiveslides.min.js"></script>
+<script src="js/lib/responsiveslides.min.js"></script>
 <script>
 	// You can also use "$(window).load(function() {"
 	$(function() {

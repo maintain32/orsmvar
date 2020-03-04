@@ -21,13 +21,10 @@ class ServerController extends Controller
     public function saveReservation()
     {
         $aData = $this->oRequest->toArray();
-        $aReservationData = $this->formatData($aData);
-
-//        $aValidateData = $this->validateData($aReservationData);
-//        if ($aValidateData->passes())
-//        {
-//            $aReservationData['booking_code'] = CommonLibrary::randomizeReservationID(10);
-//            logger($aReservationData);
+        $aValidateData = $this->validateData($aData);
+        if ($aValidateData->passes())
+        {
+            $aReservationData = $this->formatData($aData);
             $mResult = $this->oReservationModel->insert($aReservationData);
             if ($mResult === false) {
                 return [
@@ -43,36 +40,38 @@ class ServerController extends Controller
                 'return_msg'   => 'Congratulations',
                 'icon'         => 'success'
             ];
-//        }
-//
-//        return [
-//            'bResult'      => false,
-//            'return_title' => $aValidateData->errors()->first(),
-//            'return_msg'   => 'Please fill up valid data to the necessary field',
-//            'icon'         => 'error'
-//        ];
+        }
+
+        return [
+            'bResult'      => false,
+            'return_title' => $aValidateData->errors()->first(),
+            'return_msg'   => 'Please fill up valid data to the necessary field',
+            'icon'         => 'error'
+        ];
     }
 
     private function formatData($aData)
     {
-        logger('before : ');
-        logger($aData);
         $aData['booking_code'] = CommonLibrary::randomizeReservationID(10);
         $aData['message'] = nl2br($aData['message']);
+
+        $iReservationRate = $aData['booking_time'] === 'daytime' ? 11000 : 13000;
+        $iAdditionalGuestFee = $aData['booking_time'] === 'daytime' ? 150 : 200;
+
+        $aData['additional_guest'] = $aData['total_guest'] - 50;
+        $aData['additional_guest'] = $aData['additional_guest'] <= 0 ? 0 : $aData['additional_guest'];
+
+        $aData['additional_guest_fee'] = $aData['additional_guest'] * $iAdditionalGuestFee;
+
+        $aData['additional_hours'] = 0;
         $aData['additional_room'] = $aData['additional_room'] === 'true' ? 3000 : 0;
         $aData['additional_gas'] = $aData['additional_gas'] === 'true' ? 300 : 0;
         $aData['additional_refrigerator'] = $aData['additional_refrigerator'] === 'true' ? 300 : 0;
-        $aData['additional_hours'] = 0;
-        $aData['additional_guest'] = $aData['total_guest'] - 50;
-        $aData['additional_guest'] = $aData['additional_guest'] <= 0 ? 0 : $aData['additional_guest'];
-        $iAdditionalGuest = $aData['booking_time'] === 'daytime' ? 150 : 200;
-        $aData['additional_guest_fee'] = $aData['additional_guest'] * $iAdditionalGuest;
-        $iReservationRate = $aData['booking_time'] === 'daytime' ? 11000 : 13000;
         $aData['total_rate'] = $iReservationRate + $aData['additional_guest_fee'];
+
         $aData['grand_total'] = $aData['total_rate'] + $aData['additional_room'] + $aData['additional_gas'] + $aData['additional_refrigerator'];
         $aData['reservation_fee'] =  $aData['grand_total'] * .25;
-        logger('after : ');
-        logger($aData);
+
         return $aData;
     }
 
@@ -84,9 +83,11 @@ class ServerController extends Controller
             'email'         => 'required|email:rfc',
             'checkin_date'  => 'required|date|after:tomorrow',
             'checkout_date' => 'required|after_or_equal:checkin_date',
-            'adults'        => 'numeric|min:1',
-            'children'      => 'numeric',
+            'total_guest'   => 'numeric|min:1',
             'message'       => 'required|max:50',
+            'additional_room' => 'required',
+            'additional_gas' => 'required',
+            'additional_refrigerator' => 'required',
         ];
 
         $messages = [
@@ -98,10 +99,12 @@ class ServerController extends Controller
             'checkin_date.after'           => 'Earliest booking can be made tomorrow',
             'checkout_date.required'       => 'Check-out date is required',
             'checkout_date.after_or_equal' => 'Check-out date must be later than check-in date',
-            'adults.numeric'               => 'Adults pax count must be numeric',
-            'children.numeric'             => 'Adults pax count must be numeric',
+            'total_guest.numeric'          => 'Adults pax count must be numeric',
             'message.required'             => 'Message is required',
             'message.max'                  => 'maximum of 50 characters only for message',
+            'additional_room.required' => 'additional_room is required',
+            'additional_gas.required' => 'additional_gas is required',
+            'additional_refrigerator.required' => 'additional_refrigerator is required',
         ];
 
         return Validator::make($aData, $rules, $messages);
