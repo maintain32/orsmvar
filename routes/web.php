@@ -20,7 +20,7 @@ Route::get('/add/booking', 'PagesController@showAddBookingPage');
 Route::get('/edit/booking', 'PagesController@showEditBookingPage');
 Route::get('/view/booking', 'Presources/views/includes/banner.blade.phpagesController@showViewBookingPage');
 
-Route::get('sendbasicemail','MailController@sendEmailReminder');
+Route::get('sendbasicemail','MailController@basic_email');
 Route::get('sendhtmlemail','MailController@html_email');
 Route::get('sendattachmentemail','MailController@attachment_email');
 
