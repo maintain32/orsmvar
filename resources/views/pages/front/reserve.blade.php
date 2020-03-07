@@ -38,9 +38,13 @@
                             </div>
                             <div class='col-md-6'>
                                 <div class="form-group">
-                                    <label for="adults" class="font-weight-bold text-black">Check-out date</label>
-                                    <input type='text' class="form-control" name="checkout_date" id="checkout_date"
-                                           autocomplete="off" required/>
+                                    <label for="booking_time" class="font-weight-bold text-black">Hours</label>
+                                    <div class="field-icon-wrap">
+                                        <select name="booking_time" id="booking_time" class="form-control" required>
+                                            <option value="daytime">Daytime (8am - 4pm)</option>
+                                            <option value="overnight">Overnight (8pm - 4am)</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -53,14 +57,7 @@
                                        class="form-control">
                             </div>
                             <div class="col-md-6 form-group">
-                                <label for="booking_time" class="font-weight-bold text-black">Hours</label>
-                                <div class="field-icon-wrap">
-                                    <select name="booking_time" id="booking_time" class="form-control" required>
-                                        <option value="daytime">Daytime (8am - 4pm)</option>
-                                        <option value="overnight">Overnight (8pm - 4am)</option>
-                                        <option value="wholeday">22 hours (8am - 6am)</option>
-                                    </select>
-                                </div>
+
                             </div>
                         </div>
                         <div class="row">

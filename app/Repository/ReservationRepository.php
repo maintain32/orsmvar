@@ -26,4 +26,12 @@ class ReservationRepository
     {
         return Reservation::where('id', '=', $iId)->get();
     }
+
+    public function getAllReservationByDate($checkin, $bookingtime)
+    {
+        return Reservation::where('checkin_date', '=', $checkin)
+            ->where('booking_time', '=', $bookingtime)
+            ->where('booking_status', '!=', 'cancelled')
+            ->get();
+    }
 }
