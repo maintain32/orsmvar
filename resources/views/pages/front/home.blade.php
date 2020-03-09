@@ -2,13 +2,11 @@
 @section('content')
 
 @include('includes.banner')
-<!--start-items-->
 <br>
 <div class="main">
 	<div class="container">
 
 	</div>
 </div>
-<!--end-items-->
-
 @stop
+bootstrap/bower_components/jquery/dist/jquery.m

@@ -39,12 +39,13 @@ class ReservationController extends BaseController
                     'icon'         => 'error'
                 ];
             }
-            $this->sendMail($aData);
+            $this->sendMail($mResult->toArray());
             return [
                 'bResult'      => true,
                 'return_title' => 'Successfully reserve date',
                 'return_msg'   => 'Please check your email for further instructions',
-                'icon'         => 'success'
+                'icon'         => 'success',
+                'booking_code' =>  $mResult['booking_code']
             ];
         }
 
@@ -82,9 +83,9 @@ class ReservationController extends BaseController
         $aData['additional_room']         = $aData['additional_room'] === 'true' ? 3000 : 0;
         $aData['additional_gas']          = $aData['additional_gas'] === 'true' ? 300 : 0;
         $aData['additional_refrigerator'] = $aData['additional_refrigerator'] === 'true' ? 300 : 0;
-        $aData['total_rate']              = $iReservationRate + $aData['additional_guest_fee'];
+        $aData['total_rate']              = $iReservationRate;
 
-        $aData['grand_total']     = $aData['total_rate'] + $aData['additional_room'] + $aData['additional_gas'] + $aData['additional_refrigerator'];
+        $aData['grand_total']     = $aData['total_rate'] + $aData['additional_guest_fee'] + $aData['additional_room'] + $aData['additional_gas'] + $aData['additional_refrigerator'];
         $aData['reservation_fee'] =  $aData['grand_total'] * .25;
 
         return $aData;
@@ -96,7 +97,7 @@ class ReservationController extends BaseController
             'name'                    => 'required',
             'phone'                   => 'required|size:11',
             'email'                   => 'required|email:rfc',
-            'checkin_date'            => 'required|date|after:tomorrow',
+            'checkin_date'            => 'required|date|after:now',
             'total_guest'             => 'numeric|min:1',
             'message'                 => 'required|max:50',
             'additional_room'         => 'required',
@@ -132,11 +133,24 @@ class ReservationController extends BaseController
         return $aValidate;
     }
 
-    private function sendMail($aData)
+    private function sendMail($booking)
     {
-        Mail::send('mail', $aData, function($message) use ($aData) {
-            $message->to($aData['email'], $aData['name'])->subject('Private Resort Reservation');
-            $message->from('merlitasvenue@gmail.com','Merlita\'s Venue and Private Resort');
-        });
+        try {
+            Mail::send('mail', ['booking' => $booking], function($message) use ($booking) {
+                $message->to($booking['email'], $booking['name'])->subject('Private Resort Reservation');
+                $message->from('merlitasvenue@gmail.com','Merlita\'s Venue and Private Resort');
+            });
+        } catch (\Exception $e) {
+            logger($e);
+        }
+    }
+
+    public function confirmBooking($sBookingCode)
+    {
+        $aValidBooking = $this->oReservationModel->getReservationId($sBookingCode)->toArray();
+        if (!empty($aValidBooking) === true && (string)$aValidBooking[0]['booking_status'] === 'booked') {
+            $this->oReservationModel->updateBookingStatus($sBookingCode, 'confirmed');
+        }
+        return redirect('/reservation/' . $sBookingCode);
     }
 }

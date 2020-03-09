@@ -4,7 +4,7 @@
         <!-- logo start -->
         <div class="page-logo">
             <a href="index.html">
-                <img alt="" src="assets/img/logo.png">
+                <img alt="" src="{{ URL::asset('/assets/img/logo.png') }}">
                 <span class="logo-default">Spice</span> </a>
         </div>
         <!-- logo end -->

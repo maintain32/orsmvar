@@ -31,8 +31,8 @@
     <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
-    <script type="text/javascript" src="js/move-top.js"></script>
-    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript" src= {{ URL::asset('js/move-top.js') }}"></script>
+    <script type="text/javascript" src= {{ URL::asset('js/easing.js') }}"></script>
     <script type="text/javascript">
                         jQuery(document).ready(function($) {
                             $(".scroll").click(function(event){
@@ -42,9 +42,9 @@
                         });
                     </script>
     <!-- start menu -->
-    <script src="js/simpleCart.min.js"> </script>
+    <script src= {{ URL::asset('js/simpleCart.min.js') }}"> </script>
     <link href="/css/lib/memenu.css" rel="stylesheet" type="text/css" media="all" />
-    <script type="text/javascript" src="js/memenu.js"></script>
+    <script type="text/javascript" src= {{ URL::asset('js/memenu.js') }}"></script>
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

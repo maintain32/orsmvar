@@ -5,7 +5,7 @@
 			<div class="col-md-4 footer-left">
 			<h3>CONNECT WITH US</h3>
 				<ul>
-					<li><a href="#" onclick="randomFB()"><img src="img/facebook.png"> Facebook</a></li>
+					<li><a href="#" onclick="randomFB()"><img src="{{ URL::asset('/img/facebook.png') }}"> Facebook</a></li>
 					<script type="text/javascript">
 						var randomFB = function() {
 							var links = [
@@ -19,7 +19,7 @@
 						}
 					</script>
 
-					<li><a href="#" onclick="randomTwitter()"><img src="img/twitter.png"> Twitter</a></li>
+					<li><a href="#" onclick="randomTwitter()"><img src="{{ URL::asset('/img/twitter.png') }}"> Twitter</a></li>
 					<script type="text/javascript">
 						var randomTwitter = function() {
 							var links = [
@@ -33,7 +33,7 @@
 						}
 					</script>
 
-					<li><a href="#" onclick="randomIG()"><img src="img/instagram.png"> Instagram</a></li>
+					<li><a href="#" onclick="randomIG()"><img src="{{ URL::asset('/img/instagram.png') }}"> Instagram</a></li>
 					<script type="text/javascript">
 						var randomIG = function() {
 							var links = [
@@ -114,8 +114,8 @@
 	});
 </script>
 
-<script type="text/javascript" src="/js/lib/move-top.js"></script>
-<script type="text/javascript" src="/js/lib/easing.js"></script>
+<script type="text/javascript" src="{{ URL::asset('/js/lib/move-top.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('/js/lib/easing.js') }}"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event) {
@@ -127,13 +127,13 @@
 	});
 </script>
 <!-- start menu -->
-<script src="/js/lib/simpleCart.min.js"> </script>
+<script src="{{ URL::asset('/js/lib/simpleCart.min.js') }}"> </script>
 
-<script type="text/javascript" src="/js/lib/memenu.js"></script>
+<script type="text/javascript" src="{{ URL::asset('/js/lib/memenu.js') }}"></script>
 <script>
 	$(document).ready(function() {
 		$(".memenu").memenu();
 	});
 </script>
 <script src="{{ URL::asset('js/main.js') }}"></script>
-<script src="/js/lib/responsiveslides.min.js"></script>
+<script src="{{ URL::asset('/js/lib/responsiveslides.min.js') }}"></script>

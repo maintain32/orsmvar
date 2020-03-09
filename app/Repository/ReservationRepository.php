@@ -24,7 +24,7 @@ class ReservationRepository
 
     public function getReservationId($iId)
     {
-        return Reservation::where('id', '=', $iId)->get();
+        return Reservation::where('booking_code', '=', $iId)->get();
     }
 
     public function getAllReservationByDate($checkin, $bookingtime)
@@ -33,5 +33,16 @@ class ReservationRepository
             ->where('booking_time', '=', $bookingtime)
             ->where('booking_status', '!=', 'cancelled')
             ->get();
+    }
+
+    public function updateBookingStatus($iId, $sBookingStatus)
+    {
+        try{
+            return Reservation::where('booking_code', '=', $iId)
+                ->update(['booking_status' => $sBookingStatus]);
+        } catch(\Exception $e) {
+            logger($e);
+            return false;
+        }
     }
 }
