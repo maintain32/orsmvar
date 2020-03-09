@@ -1,10 +1,7 @@
 <h1>Merlita's Venue and Private Resort</h1>
 
 <div class="contact-top heading">
-    <h3>Booking Reference : {{$booking['booking_code']}} &nbsp;
-        <button type="button" class="btn btn-warning">Waiting for confirmation</button>
-        <button type="button" class="btn btn-danger">Cancel Booking</button>
-    </h3>
+    <h3>Booking Reference : {{$booking['booking_code']}}</h3>
 </div>
 <div class="faq-bottom">
     <div class="col-md-3 contact-left">
