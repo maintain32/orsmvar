@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     let oReserve = {
         init: function () {
             this.saveReservation('#btnReserve');

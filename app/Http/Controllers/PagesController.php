@@ -46,4 +46,8 @@ class PagesController extends Controller
         $booking = $this->oReservationModel->getReservationId($sBookingCode);
         return view('pages.front.booking-info', compact('booking'));
     }
+    public function showDashboardPage()
+    {
+        return view('pages.admin.dashboard');
+    }
 }

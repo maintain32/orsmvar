@@ -1,4 +1,8 @@
 @extends('layout.default')
+@section('cssfiles')
+    <link href="{{ URL::asset('css/booking-info.css') }}" rel="stylesheet" type="text/css" />
+@stop
+
 @section('content')
 
     @include('includes.banner')
@@ -84,9 +88,27 @@
                         <br>
                         <br>
                         <h4> Upload Payment Receipt </h4>
+                        <form>
+                        <!-- image-preview-filename input [CUT FROM HERE]-->
+                        <div class="input-group image-preview">
+                            <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                            <span class="input-group-btn">
+                                <!-- image-preview-clear button -->
+                                <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                                    <span class="glyphicon glyphicon-remove"></span> Clear
+                                </button>
+                                <!-- image-preview-input -->
+
+                                <div class="btn btn-default image-preview-input">
+                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                    <span class="image-preview-input-title">Browse</span>
+                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                                </div>
+                            </span>
+                        </div><!-- /input-group image-preview [TO HERE]-->
+                        </form>
                     </div>
                     <br>
-
                     <div class="clearfix"></div>
                 </div>
             @empty
@@ -97,4 +119,8 @@
             @endforelse
         </div>
     </div>
+@stop
+
+@section('jsfiles')
+    <script src="{{ URL::asset('js/booking-info.js') }}"></script>
 @stop

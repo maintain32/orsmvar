@@ -18,6 +18,7 @@ Route::get('/reservation/{sBookingCode}', 'PagesController@showReservationPage')
 Route::get('/about', 'PagesController@showAboutPage');
 Route::get('/login', 'PagesController@showLoginPage');
 
+Route::get('/dashboard', 'PagesController@showDashboardPage');
 Route::get('/add/booking', 'PagesController@showAddBookingPage');
 Route::get('/edit/booking', 'PagesController@showEditBookingPage');
 Route::get('/view/booking', 'PagesController@showViewBookingPage');

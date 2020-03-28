@@ -38,6 +38,13 @@
                         </div>
                     </div>
                 </li>
+                <li class="nav-item active">
+                    <a href="widget.html" class="nav-link nav-toggle">
+                        <i class="material-icons">dashboard</i>
+                        <span class="title">Dashboard</span>
+                        <span class="<?php echo e(Request::is('add/booking') ? 'selected' : 'title'); ?>"></span>
+                    </a>
+                </li>
                 <li class="nav-item start">
                     <a href="#" class="nav-link nav-toggle">
                         <i class="material-icons">dashboard</i>

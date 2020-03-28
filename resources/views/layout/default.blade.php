@@ -2,6 +2,7 @@
 <html>
     <head>
         @include('includes.front.head')
+        @yield('cssfiles')
     </head>
     <body>
         @include('includes.front.header')

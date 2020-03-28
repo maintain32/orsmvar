@@ -1,4 +1,4 @@
-/*--A Design by W3layouts 
+/*--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -78,7 +78,7 @@ body a{
 .item_add {
 	color: #fff;
 	border:none;
-}	
+}
 .grid_1 img{
 	margin-bottom:1em;
 }
@@ -100,7 +100,7 @@ a.simpleCart_empty {
 }
 .box_1 p {
 	margin: 0px 0 0px 8px;
-}	
+}
 .total {
 	display: inline-block;
 	vertical-align: middle;
@@ -277,7 +277,7 @@ a.simpleCart_empty {
 ul.callbacks_tabs.callbacks2_tabs {
 	display: block;
 }
-/*--Slider-Part-Ends-Here--*/	
+/*--Slider-Part-Ends-Here--*/
 /*--end-banner--*/
 /*--start-banner-bottom--*/
 .banner-bottom {
@@ -450,8 +450,8 @@ ul.callbacks_tabs.callbacks2_tabs {
 	height: 28px;
 	border: none;
 	text-indent: 100%;
-	background: url(../images/top-arrow.png) no-repeat;
-} 
+	background: url(/img/top-arrow.png) no-repeat;
+}
 /*--start-contact--*/
 .heading h3{
 	color: #242424;
@@ -543,7 +543,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 	width: 100%;
 	font-size: 14px;
 	padding: 10px 10px;
-	font-family: 'Lato', sans-serif;	
+	font-family: 'Lato', sans-serif;
 }
 
 .address input[type="date"] {
@@ -552,7 +552,7 @@ ul.callbacks_tabs.callbacks2_tabs {
 	width: 100%;
 	font-size: 14px;
 	padding: 10px 10px;
-	font-family: 'Lato', sans-serif;	
+	font-family: 'Lato', sans-serif;
 }
 
 .address{
@@ -1235,7 +1235,7 @@ ul.size {
 }
 .map iframe {
 	height: 290px;
-}	
+}
 .contact,.account,.ckeckout{
 	padding: 4em 0px;
 }
@@ -1388,7 +1388,7 @@ a.simpleCart_empty {
 }
 .banner-bottom {
 	padding-top: 2em;
-}	
+}
 .abt-flower {
 	padding-top: 2em;
 }
