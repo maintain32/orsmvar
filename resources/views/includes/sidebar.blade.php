@@ -38,37 +38,22 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item active">
-                    <a href="widget.html" class="nav-link nav-toggle">
+                <li class="nav-item <?php echo e(Request::is('dashboard') ? 'active' : ''); ?>">
+                    <a href="/dashboard" class="nav-link nav-toggle">
                         <i class="material-icons">dashboard</i>
                         <span class="title">Dashboard</span>
-                        <span class="<?php echo e(Request::is('add/booking') ? 'selected' : 'title'); ?>"></span>
+                        <span class="<?php echo e(Request::is('dashboard') ? 'selected' : 'title'); ?>"></span>
                     </a>
                 </li>
-                <li class="nav-item start">
-                    <a href="#" class="nav-link nav-toggle">
-                        <i class="material-icons">dashboard</i>
-                        <span class="title">Dashboard</span>
-                        <span class="arrow"></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li class="nav-item">
-                            <a href="index.html" class="nav-link ">
-                                <span class="title">Dashboard 1</span>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="dashboard2.html" class="nav-link ">
-                                <span class="title">Dashboard 2</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item active">
+                <li class="nav-item
+                    <?php echo e(Request::is('add/booking') ? 'active' : ''); ?>
+                    <?php echo e(Request::is('view/booking') ? 'active' : ''); ?>
+                    <?php echo e(Request::is('edit/booking') ? 'active' : ''); ?>
+                    ">
                     <a href="#" class="nav-link nav-toggle">
                         <i class="material-icons">business_center</i>
                         <span class="title">Booking</span>
-                        <span class="selected"></span>
+                        <span class="<?php echo e(Request::is('add/booking') ? 'selected' : 'title'); ?>"></span>
                         <span class="arrow open"></span>
                     </a>
                     <ul class="sub-menu">
