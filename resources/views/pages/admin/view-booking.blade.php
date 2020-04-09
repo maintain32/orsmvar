@@ -1,7 +1,7 @@
 @extends('layout.admin')
 
 @section('cssfiles')
-    <link href="{{ URL::asset('/js/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css') }}" rel="
+    <link href="{{ URL::asset('/js/admin/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css') }}" rel="
           stylesheet" type="text/css" />
 @stop
 
@@ -121,7 +121,7 @@
 @stop
 
 @section('jsfiles')
-    <script src="{{ URL::asset('/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ URL::asset('/js/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ URL::asset('/js/admin/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ URL::asset('/js/admin/pages/table/table_data.js') }}"></script>
 @stop

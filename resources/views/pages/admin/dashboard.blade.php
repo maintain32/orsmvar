@@ -571,9 +571,9 @@
 @stop
 
 @section('jsfiles')
-    <script src="{{ URL::asset('js/plugins/chart-js/Chart.bundle.js') }}"></script>
-    <script src="{{ URL::asset('js/plugins/chart-js/utils.js') }}"></script>
-    <script src="{{ URL::asset('js/charts.js') }}"></script>
-    <script src="{{ URL::asset('js/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
-    <script src="{{ URL::asset('js/chart-design.js') }}"></script>
+    <script src="{{ URL::asset('js/admin/plugins/chart-js/Chart.bundle.js') }}"></script>
+    <script src="{{ URL::asset('js/admin/plugins/chart-js/utils.js') }}"></script>
+    <script src="{{ URL::asset('js/admin/charts.js') }}"></script>
+    <script src="{{ URL::asset('js/admin/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ URL::asset('js/admin/chart-design.js') }}"></script>
 @stop

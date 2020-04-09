@@ -2,10 +2,10 @@
  *  Document   : material_style.css
  *  Author     : RedStar Theme
  *  Description: This style sheet is used for customize material design components.
- 
- 
+
+
  				[Table Of Content]
- 				
+
  				1. MENU
  				2. TABLE
  				3. BADGES
@@ -15,12 +15,12 @@
    font-family: 'Material Icons';
    font-style: normal;
    font-weight: 400;
-   src: url(../plugins/material-icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+   src: url(plugins/material-icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
    src: local('Material Icons'),
         local('MaterialIcons-Regular'),
-        url(../plugins/material-icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
-        url(../plugins/material-icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
-        url(../plugins/material-icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+        url(../front/plugins/material-icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+        url(../front/plugins/material-icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
+        url(../front/plugins/material-icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
 }
 
 .material-icons {
@@ -211,4 +211,3 @@
 	margin-left: 10px;
 }
 
-    

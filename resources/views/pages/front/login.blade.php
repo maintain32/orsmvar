@@ -14,19 +14,19 @@
 	<link rel="shortcut icon" type="image/x-icon" href="images/Icon.ico" />
 
     <!-- Bootstrap Core CSS -->
-    <link href="/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/front/lib/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="/css/lib/metisMenu.min.css" rel="stylesheet">
+    <link href="/css/front/lib/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/css/lib/sb-admin-2.css" rel="stylesheet">
+    <link href="/css/front/lib/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="/css/lib/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/front/lib/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <link href="/css/lib/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="/css/lib/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/front/lib/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/front/lib/style.css" rel="stylesheet" type="text/css" media="all" />
 
     <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
@@ -43,7 +43,7 @@
                     </script>
     <!-- start menu -->
     <script src= {{ URL::asset('js/simpleCart.min.js') }}"> </script>
-    <link href="/css/lib/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/front/lib/memenu.css" rel="stylesheet" type="text/css" media="all" />
     <script type="text/javascript" src= {{ URL::asset('js/memenu.js') }}"></script>
     <script>$(document).ready(function(){$(".memenu").memenu();});</script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -65,7 +65,7 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" method="post" action="login.php">
+                        <form role="form">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Username" name="txtEmail1" type="text" autofocus>
@@ -79,7 +79,7 @@
                                     </label>
                                 </div>
                                 <div class="address">
-                                  <input type="submit" value="Login" name="btnLogin" class="btn btn-lg btn-block" onClick='myFunction()'>
+                                  <input type="submit" value="Login" name="btnLogin" class="btn btn-lg btn-block">
                                 </div>
                           </fieldset>
                         </form>

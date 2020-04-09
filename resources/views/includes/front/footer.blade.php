@@ -98,13 +98,13 @@
 <a href="#" id="toTop">To Top</a>
 
 
-<script src="{{ URL::asset('js/lib/popper.min.js') }}"></script>
-<script src="{{ URL::asset('js/lib/bootstrap.min.js') }}"></script>
-<script src="{{ URL::asset('js/lib/owl.carousel.min.js') }}"></script>
-<script src="{{ URL::asset('js/lib/jquery.stellar.min.js') }}"></script>
-<script src="{{ URL::asset('js/lib/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ URL::asset('js/lib/sweetalert2.all.min.js') }}"></script>
-<script src="{{ URL::asset('js/lib/aos.js') }}"></script>
+<script src="{{ URL::asset('js/front/lib/popper.min.js') }}"></script>
+<script src="{{ URL::asset('js/front/lib/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('js/front/lib/owl.carousel.min.js') }}"></script>
+<script src="{{ URL::asset('js/front/lib/jquery.stellar.min.js') }}"></script>
+<script src="{{ URL::asset('js/front/lib/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ URL::asset('js/front/lib/sweetalert2.all.min.js') }}"></script>
+<script src="{{ URL::asset('js/front/lib/aos.js') }}"></script>
 
 <script type="text/javascript">
 	$.ajaxSetup({
@@ -114,8 +114,8 @@
 	});
 </script>
 
-<script type="text/javascript" src="{{ URL::asset('/js/lib/move-top.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('/js/lib/easing.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/front/lib/move-top.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/front/lib/easing.js') }}"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event) {
@@ -127,13 +127,13 @@
 	});
 </script>
 <!-- start menu -->
-<script src="{{ URL::asset('/js/lib/simpleCart.min.js') }}"> </script>
+<script src="{{ URL::asset('js/front/lib/simpleCart.min.js') }}"> </script>
 
-<script type="text/javascript" src="{{ URL::asset('/js/lib/memenu.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('/js/front/lib/memenu.js') }}"></script>
 <script>
 	$(document).ready(function() {
 		$(".memenu").memenu();
 	});
 </script>
-<script src="{{ URL::asset('js/main.js') }}"></script>
-<script src="{{ URL::asset('/js/lib/responsiveslides.min.js') }}"></script>
+<script src="{{ URL::asset('js/front/main.js') }}"></script>
+<script src="{{ URL::asset('/js/front/lib/responsiveslides.min.js') }}"></script>

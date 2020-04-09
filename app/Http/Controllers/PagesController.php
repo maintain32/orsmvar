@@ -26,7 +26,7 @@ class PagesController extends Controller
     }
     public function showLoginPage()
     {
-        return view('pages.front.login');
+        return view('pages.admin.login');
     }
     public function showAddBookingPage()
     {
