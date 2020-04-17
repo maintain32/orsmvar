@@ -23,5 +23,7 @@ Route::get('/add/booking', 'PagesController@showAddBookingPage');
 Route::get('/edit/booking', 'PagesController@showEditBookingPage');
 Route::get('/view/booking', 'PagesController@showViewBookingPage');
 
-Route::post('/rest/saveBooking', 'ReservationController@saveReservation');
 Route::get('/confirmBooking/{sBookingCode}', 'ReservationController@confirmBooking');
+
+Route::post('/rest/saveBooking', 'ReservationController@saveReservation');
+Route::post('/rest/doLogin', 'RestController@doLogin');

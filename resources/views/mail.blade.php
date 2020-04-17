@@ -60,4 +60,4 @@
 </br>
 </br>
 <p>Please confirm your booking by clicking the button below</p></br>
-<a href="http://orsmvar.local.com/confirmBooking/{{$booking['booking_code']}}">Click Here</a>
+<a href="{{ url('/') }}/confirmBooking/{{$booking['booking_code']}}">Click Here</a>

@@ -121,7 +121,7 @@ a.simpleCart_empty {
 /*--end-bottom-header--*/
 /*--banner-starts--*/
 .banner-1{
-	background:url(http://orsmvar.local.com/img/resort%201.jpg) no-repeat center;
+	background:url(/img/resort%201.jpg) no-repeat center;
 	min-height:700px;
 	background-size:cover;
 	-webkit-background-size:cover;
@@ -130,7 +130,7 @@ a.simpleCart_empty {
 	-ms-background-size:cover;
 }
 .banner-2{
-	background:url(http://orsmvar.local.com/img/resort%202.jpg) no-repeat;
+	background:url(/img/resort%202.jpg) no-repeat;
 	min-height:700px;
 	background-size:cover;
 	-webkit-background-size:cover;
@@ -139,7 +139,7 @@ a.simpleCart_empty {
 	-ms-background-size:cover;
 }
 .banner-3{
-	background:url(http://orsmvar.local.com/img/resort%203.jpg) no-repeat center;
+	background:url(/img/resort%203.jpg) no-repeat center;
 	min-height:700px;
 	background-size:cover;
 	-webkit-background-size:cover;
@@ -148,7 +148,7 @@ a.simpleCart_empty {
 	-ms-background-size:cover;
 }
 .banner-4{
-	background:url(http://orsmvar.local.com/img/resort%204.jpg) no-repeat center;
+	background:url(/img/resort%204.jpg) no-repeat center;
 	min-height:700px;
 	background-size:cover;
 	-webkit-background-size:cover;
@@ -158,7 +158,7 @@ a.simpleCart_empty {
 }
 
 .banner-5{
-	background:url(http://orsmvar.local.com/img/resort%2010.jpg) no-repeat center;
+	background:url(/img/resort%2010.jpg) no-repeat center;
 	min-height:700px;
 	background-size:cover;
 	-webkit-background-size:cover;
@@ -167,7 +167,7 @@ a.simpleCart_empty {
 	-ms-background-size:cover;
 }
 .banner-6{
-	background:url(http://orsmvar.local.com/img/resort%209.jpg) no-repeat center;
+	background:url(/img/resort%209.jpg) no-repeat center;
 	min-height:700px;
 	background-size:cover;
 	-webkit-background-size:cover;

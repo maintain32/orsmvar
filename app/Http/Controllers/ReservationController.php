@@ -13,6 +13,9 @@ class ReservationController extends BaseController
 
     private $aReturnData = [];
 
+    /**
+     * @var ReservationRepository
+     */
     private $oReservationModel;
 
     public function __construct(Request $oRequest)
