@@ -19,19 +19,7 @@
                             <div class="profile-usertitle-job"> Manager </div>
                         </div>
                         <div class="sidebar-userpic-btn">
-                            <a class="tooltips" href="user_profile.html" data-placement="top"
-                               data-original-title="Profile">
-                                <i class="material-icons">person_outline</i>
-                            </a>
-                            <a class="tooltips" href="email_inbox.html" data-placement="top"
-                               data-original-title="Mail">
-                                <i class="material-icons">mail_outline</i>
-                            </a>
-                            <a class="tooltips" href="chat.html" data-placement="top"
-                               data-original-title="Chat">
-                                <i class="material-icons">chat</i>
-                            </a>
-                            <a class="tooltips" href="login.html" data-placement="top"
+                            <a class="tooltips" href="{{ url('/logout') }}" data-placement="top"
                                data-original-title="Logout">
                                 <i class="material-icons">input</i>
                             </a>
@@ -58,18 +46,18 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item {{ Request::is('add/booking') ? 'active' : '' }}">
-                            <a href="../add/booking" class="nav-link ">
+                            <a href="{{ url('booking/add') }}" class="nav-link ">
                                 <span class="title">New Booking</span>
                                 <span class="{{ Request::is('add/booking') ? 'selected' : 'title' }}"></span>
                             </a>
                         </li>
                         <li class="nav-item {{ Request::is('view/booking') ? 'active' : '' }}">
-                            <a href="../view/booking" class="nav-link ">
+                            <a href="{{ url('booking/view') }}" class="nav-link ">
                                 <span class="{{ Request::is('view/booking') ? 'selected' : 'title' }}">View Booking</span>
                             </a>
                         </li>
                         <li class="nav-item {{ Request::is('edit/booking') ? 'active' : '' }}">
-                            <a href="../edit/booking" class="nav-link ">
+                            <a href="{{ url('booking/edit') }}" class="nav-link ">
                                 <span class="{{ Request::is('edit/booking') ? 'selected' : 'title' }}">Edit Booking</span>
                             </a>
                         </li>

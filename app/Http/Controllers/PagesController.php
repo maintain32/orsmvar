@@ -26,6 +26,9 @@ class PagesController extends Controller
     }
     public function showLoginPage()
     {
+        if (session()->has('user.type')) {
+            return redirect('/dashboard');
+        }
         return view('pages.admin.login');
     }
     public function showAddBookingPage()
@@ -49,5 +52,10 @@ class PagesController extends Controller
     public function showDashboardPage()
     {
         return view('pages.admin.dashboard');
+    }
+    public function doLogout()
+    {
+        session()->flush();
+        return redirect('/login');
     }
 }

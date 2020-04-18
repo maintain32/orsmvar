@@ -9,6 +9,7 @@ class LoginRepository
 {
     public function getUserDetails($sUsername)
     {
-        return Admin::where('username', '=', $sUsername)->first();
+        return Admin::where('username', '=', $sUsername)->first() !== null ?
+            Admin::where('username', '=', $sUsername)->first()->toArray() : array();
     }
 }

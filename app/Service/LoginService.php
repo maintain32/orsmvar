@@ -31,8 +31,8 @@ class LoginService
      */
     public function checkLoginAccess($aData)
     {
-        $aUser = $this->oLoginRepository->getUserDetails($aData['username'])->toArray();
-        if (is_array($aUser) === true && $aUser['password'] === $aData['password']) {
+        $aUser = $this->oLoginRepository->getUserDetails($aData['username']);
+        if (empty($aUser) === false && $aUser['password'] === $aData['password']) {
             $this->aReturnData['message'] = 'Successful Login';
             $this->setSession($aUser);
             return $this->aReturnData;
@@ -46,9 +46,10 @@ class LoginService
     {
         session([
             'user' => [
-                'id'   => $aUser['admin_id'],
-                'name' => $aUser['name'],
-                'username' => $aUser['username']
+                'id'       => $aUser['admin_id'],
+                'name'     => $aUser['name'],
+                'username' => $aUser['username'],
+                'type'     => 'admin'
             ]
         ]);
     }
