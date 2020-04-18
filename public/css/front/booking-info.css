@@ -23,3 +23,10 @@
 .image-preview-input-title {
     margin-left:2px;
 }
+
+.receipt-preview {
+    width : 100%;
+    max-height : 300px;
+    padding-top: 10px;
+    object-fit: contain;
+}

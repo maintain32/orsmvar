@@ -13,5 +13,5 @@
 @stop
 
 @section('jsfiles')
-<script src="{{ URL::asset('js/reserve.js') }}"></script>
+<script src="{{ URL::asset('/js/front/reserve.js') }}"></script>
 @stop
