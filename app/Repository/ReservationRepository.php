@@ -46,11 +46,11 @@ class ReservationRepository
         }
     }
 
-    public function updateBookingReciept($aData)
+    public function updateBookingReciept($iBookingId, $aData)
     {
         try{
-            return Reservation::where('booking_id', '=', $aData['booking_id'])
-                ->update(['payment_receipt' => $aData['payment_receipt']]);
+            return Reservation::where('booking_id', '=', $iBookingId)
+                ->update($aData);
         } catch(\Exception $e) {
             logger('ReservationRepository@updateBookingReciept error : ' . $e);
             return false;

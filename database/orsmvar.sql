@@ -124,7 +124,7 @@ ALTER TABLE `bookings`
 
 --
 -- AUTO_INCREMENT for dumped tables
---
+--Upload Payment Receipt
 
 --
 -- AUTO_INCREMENT for table `admin`

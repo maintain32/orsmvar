@@ -16,6 +16,8 @@
                             <button type="button" class="btn btn-warning">Waiting for confirmation</button>
                         @elseif($data['booking_status'] === 'confirmed')
                             <button type="button" class="btn btn-warning">Waiting for payment</button>
+                        @elseif($data['booking_status'] === 'paid')
+                            <button type="button" class="btn btn-warning">Confirmation of Payment Receipt</button>
                         @elseif($data['booking_status'] === 'cancelled')
                             <button type="button" class="btn btn-danger">Cancelled</button>
                         @elseif($data['booking_status'] === 'reserved')
@@ -87,18 +89,19 @@
                         <br>
                         <br>
                         <br>
-                        <h4> Upload Payment Receipt </h4>
-                        <form>
-                            <input name="booking_id" type="hidden" value="{{$data->booking_id}}">
-                            <!-- image-preview-filename input [CUT FROM HERE]-->
-                            <div class="input-group image-preview">
-                                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
-                                <span class="input-group-btn">
+                        @if($data['booking_status'] === 'confirmed')
+                            <h4> Upload Payment Receipt </h4>
+                            <form>
+                                <input name="booking_id" type="hidden" value="{{$data->booking_id}}">
+                                <!-- image-preview-filename input [CUT FROM HERE]-->
+                                <div class="input-group image-preview">
+                                    <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                                    <span class="input-group-btn">
                                     <!-- image-preview-submit button -->
                                     <button type="button" class="btn btn-default image-preview-submit" style="display:none;">
                                         <span class="glyphicon glyphicon-ok"></span> Submit
                                     </button>
-                                    <!-- image-preview-input -->
+                                        <!-- image-preview-input -->
 
                                     <div class="btn btn-default image-preview-input">
                                         <span class="glyphicon glyphicon-folder-open"></span>
@@ -106,9 +109,10 @@
                                         <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
                                     </div>
                                 </span>
-                            </div>
-                            <img src="{{ URL::asset('/img/select-photo.png') }}" alt="Select Receipt Image" class="img-fluid receipt-preview"/>
-                        </form>
+                                </div>
+                                <img src="{{ URL::asset('/img/select-photo.png') }}" alt="Select Receipt Image" class="img-fluid receipt-preview"/>
+                            </form>
+                        @endif
                     </div>
                     <br>
                     <div class="clearfix"></div>

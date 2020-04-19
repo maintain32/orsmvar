@@ -25,10 +25,10 @@ class ReservationService extends BaseService
         if ($aValidateData->passes())
         {
             $aBooking = [
-                'booking_id'      => $aData['booking_id'],
+                'booking_status'  => 'paid',
                 'payment_receipt' => $this->uploadImages($aData)
             ];
-            return $this->updateBookingDetail($aBooking);
+            return $this->updateBookingDetail($aData['booking_id'], $aBooking);
         }
 
         return [
@@ -61,9 +61,9 @@ class ReservationService extends BaseService
         return '/uploads/' .$new_name;
     }
 
-    private function updateBookingDetail($aData)
+    private function updateBookingDetail($iBookingId, $aData)
     {
-        $bResult = $this->oReservationRepository->updateBookingReciept($aData);
+        $bResult = $this->oReservationRepository->updateBookingReciept($iBookingId, $aData);
         if ($bResult === 1) {
             return [
                 'status'  => 200,
