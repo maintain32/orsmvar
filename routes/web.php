@@ -32,6 +32,7 @@ Route::group(['middleware' => 'adminaccount'], function () {
 Route::prefix('rest')->group(function () {
     Route::post('saveBooking', 'ReservationController@saveReservation');
     Route::post('doLogin', 'RestController@doLogin');
+    Route::post('uploadReceipt', 'RestController@uploadReceipt');
 
     Route::group(['middleware' => 'adminsession'], function () {
 

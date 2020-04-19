@@ -5,25 +5,17 @@ use App\Repository\LoginRepository;
 use Validator;
 use Mail;
 
-class LoginService
+class LoginService extends BaseService
 {
     /**
      * @var Login
      */
     private $oLoginRepository;
 
-    /**
-     * @var array $aReturnData
-     */
-    private $aReturnData;
-
     public function __construct()
     {
+        parent::__construct();
         $this->oLoginRepository = new LoginRepository();
-        $this->aReturnData = [
-            'status'  => 200,
-            'message' => 'string message'
-        ];
     }
 
     /**

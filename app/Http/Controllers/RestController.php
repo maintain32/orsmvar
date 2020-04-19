@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Service\LoginService;
+use App\Service\ReservationService;
 use Illuminate\Http\Request;
 
 class RestController extends BaseController
@@ -15,10 +16,16 @@ class RestController extends BaseController
      */
     private $oLoginService;
 
+    /**
+     * @var ReservationService
+     */
+    private $oReservationService;
+
     public function __construct(Request $oRequest)
     {
         $this->oRequest = $oRequest;
         $this->oLoginService = new LoginService();
+        $this->oReservationService = new ReservationService();
         $this->aReturnData['bResult'] = true;
     }
 
@@ -26,5 +33,11 @@ class RestController extends BaseController
     {
         $aData = $this->oRequest->toArray();
         return $this->oLoginService->checkLoginAccess($aData);
+    }
+
+    public function uploadReceipt()
+    {
+        $aData = $this->oRequest->toArray();
+        return $this->oReservationService->uploadReceipt($aData);
     }
 }

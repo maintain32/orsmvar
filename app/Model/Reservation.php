@@ -38,7 +38,7 @@ class Reservation extends Model
         'phone',
         'email',
         'checkin_date',
-        'checkout_date',
+        'payment_receipt',
         'booking_time',
         'total_guest',
         'message',

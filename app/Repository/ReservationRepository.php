@@ -17,7 +17,7 @@ class ReservationRepository
         try{
             return Reservation::create($aData);
         } catch(\Exception $e) {
-            logger($e);
+            logger('ReservationRepository@insert error : ' . $e);
             return false;
         }
     }
@@ -41,7 +41,18 @@ class ReservationRepository
             return Reservation::where('booking_code', '=', $iId)
                 ->update(['booking_status' => $sBookingStatus]);
         } catch(\Exception $e) {
-            logger($e);
+            logger('ReservationRepository@updateBookingReciept error : ' . $e);
+            return false;
+        }
+    }
+
+    public function updateBookingReciept($aData)
+    {
+        try{
+            return Reservation::where('booking_id', '=', $aData['booking_id'])
+                ->update(['payment_receipt' => $aData['payment_receipt']]);
+        } catch(\Exception $e) {
+            logger('ReservationRepository@updateBookingReciept error : ' . $e);
             return false;
         }
     }

@@ -2,11 +2,77 @@
 namespace App\Service;
 
 use App\Repository\ReservationRepository;
-use App\Library\CommonLibrary;
 use Validator;
 use Mail;
 
-class ReservationService
+class ReservationService extends BaseService
 {
+    /**
+     * @var Login
+     */
+    private $oReservationRepository;
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->oReservationRepository = new ReservationRepository();
+    }
+
+    public function uploadReceipt($aData)
+    {
+        $aValidateData = $this->validateReceipt($aData);
+
+        if ($aValidateData->passes())
+        {
+            $aBooking = [
+                'booking_id'      => $aData['booking_id'],
+                'payment_receipt' => $this->uploadImages($aData)
+            ];
+            return $this->updateBookingDetail($aBooking);
+        }
+
+        return [
+            'status'  => 404,
+            'message' => $aValidateData->errors()->first()
+        ];
+    }
+
+    private function validateReceipt($aData)
+    {
+        $rules = [
+            'booking_id'         => 'required',
+            'input-file-preview' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        ];
+
+        $messages = [
+            'booking_id.required'          => 'Invalid reservation ticket',
+            'input-file-preview.required'  => 'Receipt photo is required',
+            'input-file-preview.image'     => 'Invalid receipt photo',
+        ];
+
+        return Validator::make($aData, $rules, $messages);
+    }
+
+    private function uploadImages($aData)
+    {
+        $image = $aData['input-file-preview'];
+        $new_name = rand() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('uploads'), $new_name);
+        return '/uploads/' .$new_name;
+    }
+
+    private function updateBookingDetail($aData)
+    {
+        $bResult = $this->oReservationRepository->updateBookingReciept($aData);
+        if ($bResult === 1) {
+            return [
+                'status'  => 200,
+                'message' => $bResult
+            ];
+        }
+        return [
+            'status'  => 400,
+            'message' => 'Unable to upload receipt to database'
+        ];
+    }
 }
