@@ -47,7 +47,7 @@ TRUNCATE TABLE `admin`;
 -- Dumping data for table `admin`
 --
 
-INSERT DELAYED IGNORE INTO `admin` (`admin_id`, `username`, `password`, `name`) VALUES
+INSERT INTO `admin` (`admin_id`, `username`, `password`, `name`) VALUES
 (1, 'paolo', 'password', 'Paolo Delos Santos'),
 (2, 'marvine', 'password', 'Marvine Bonifacio');
 
@@ -94,7 +94,7 @@ TRUNCATE TABLE `bookings`;
 -- Dumping data for table `bookings`
 --
 
-INSERT DELAYED IGNORE INTO `bookings` (`booking_id`, `booking_date`, `booking_update`, `booking_code`, `name`, `phone`, `email`, `checkin_date`, `payment_receipt`, `booking_time`, `total_guest`, `message`, `total_rate`, `reservation_fee`, `additional_guest`, `additional_guest_fee`, `additional_room`, `additional_gas`, `additional_refrigerator`, `additional_hours`, `grand_total`, `payment_status`, `payment_date`, `booking_status`) VALUES
+INSERT INTO `bookings` (`booking_id`, `booking_date`, `booking_update`, `booking_code`, `name`, `phone`, `email`, `checkin_date`, `payment_receipt`, `booking_time`, `total_guest`, `message`, `total_rate`, `reservation_fee`, `additional_guest`, `additional_guest_fee`, `additional_room`, `additional_gas`, `additional_refrigerator`, `additional_hours`, `grand_total`, `payment_status`, `payment_date`, `booking_status`) VALUES
 (10, '2020-05-02 23:32:09', '2020-05-02 23:40:28', 'nhFxIEUNyY', 'Shaira Yvonne Cruz', '09164236238', 'shaira.cruz.dev@gmail.com', '2020-05-03 00:00:00', '/uploads/440376843.JPG', 'daytime', 30, 'Small gathering for family reunion', 11000, 2825, 0, 0, 0, 0, 300, 0, 11300, 'unpaid', '2020-05-02 23:32:09', 'paid');
 
 --
