@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2020 at 05:25 PM
+-- Generation Time: May 06, 2020 at 11:49 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -47,7 +47,7 @@ TRUNCATE TABLE `admin`;
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`admin_id`, `username`, `password`, `name`) VALUES
+INSERT DELAYED IGNORE INTO `admin` (`admin_id`, `username`, `password`, `name`) VALUES
 (1, 'paolo', 'password', 'Paolo Delos Santos'),
 (2, 'marvine', 'password', 'Marvine Bonifacio');
 
@@ -82,7 +82,7 @@ CREATE TABLE `bookings` (
   `grand_total` double NOT NULL,
   `payment_status` enum('unpaid','paid') NOT NULL DEFAULT 'unpaid',
   `payment_date` datetime NOT NULL DEFAULT current_timestamp(),
-  `booking_status` enum('cancelled','reserved','booked','confirmed') NOT NULL DEFAULT 'booked'
+  `booking_status` enum('cancelled','reserved','booked','confirmed','paid') NOT NULL DEFAULT 'booked'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -94,16 +94,8 @@ TRUNCATE TABLE `bookings`;
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`booking_id`, `booking_date`, `booking_update`, `booking_code`, `name`, `phone`, `email`, `checkin_date`, `payment_receipt`, `booking_time`, `total_guest`, `message`, `total_rate`, `reservation_fee`, `additional_guest`, `additional_guest_fee`, `additional_room`, `additional_gas`, `additional_refrigerator`, `additional_hours`, `grand_total`, `payment_status`, `payment_date`, `booking_status`) VALUES
-(1, '2020-03-09 23:29:35', '2020-03-10 00:02:45', '5LX9oVBNbw', 'Shaira Cruz', '09164236238', 'shairacruz028@yahoo.com', '2020-03-10 00:00:00', NULL, 'daytime', 45, 'dummy event', 11000, 2750, 0, 0, 0, 0, 0, 0, 11000, 'unpaid', '2020-03-09 23:29:35', 'confirmed'),
-(2, '2020-03-09 23:33:36', '2020-03-10 00:06:36', 'KyioxnjwLl', 'Christine Jhoy Emen', '09174575986', 'shairacruz028@yahoo.com', '2020-03-13 00:00:00', NULL, 'overnight', 50, 'Cafe24 ph Team Building', 13000, 4000, 0, 0, 3000, 0, 0, 0, 16000, 'unpaid', '2020-03-09 23:33:36', 'confirmed'),
-(3, '2020-03-09 23:41:09', '2020-03-09 23:41:09', 'SJQAx4vyDH', 'Sean D Cruz', '09174575986', 'shairacruz028@yahoo.com', '2020-03-12 00:00:00', NULL, 'daytime', 34, 'Alexa\'s 1st Birthday', 11000, 2750, 0, 0, 0, 0, 0, 0, 11000, 'unpaid', '2020-03-09 23:41:09', 'booked'),
-(4, '2020-03-09 23:42:33', '2020-03-09 23:42:33', 'lUTzMZb1JD', 'Sean D Cruz', '09174575986', 'shairacruz028@yahoo.com', '2020-03-16 00:00:00', NULL, 'daytime', 34, 'Alexa\'s 1st Birthday', 11000, 2750, 0, 0, 0, 0, 0, 0, 11000, 'unpaid', '2020-03-09 23:42:33', 'booked'),
-(5, '2020-03-09 23:43:27', '2020-03-09 23:43:27', '4C0fXkQLED', 'Sean D Cruz', '09174575986', 'shairacruz028@yahoo.com', '2020-03-17 00:00:00', NULL, 'daytime', 51, 'Alexa\'s 1st Birthday', 11000, 2787.5, 1, 150, 0, 0, 0, 0, 11150, 'unpaid', '2020-03-09 23:43:27', 'booked'),
-(6, '2020-03-09 23:45:53', '2020-03-09 23:45:53', 'GOkOriySuZ', 'Sean D Cruz', '09174575986', 'shairayvonnecruz028@gmail.com', '2020-03-18 00:00:00', NULL, 'daytime', 10, 'Small gathering', 11000, 2750, 0, 0, 0, 0, 0, 0, 11000, 'unpaid', '2020-03-09 23:45:53', 'booked'),
-(7, '2020-03-09 23:47:45', '2020-03-09 23:47:45', 'RiBT45zJwc', 'Shaira Cruz', '09164236238', 'shairacruz028@yahoo.com', '2020-03-20 00:00:00', NULL, 'daytime', 45, 'Small Gathering', 11000, 2750, 0, 0, 0, 0, 0, 0, 11000, 'unpaid', '2020-03-09 23:47:45', 'booked'),
-(8, '2020-03-09 23:50:25', '2020-03-09 23:50:25', 'LIV9fQZaXs', 'Shaira Cruz', '09164236238', 'shairacruz028@yahoo.com', '2020-03-21 00:00:00', NULL, 'daytime', 45, 'Small Gathering', 11000, 2750, 0, 0, 0, 0, 0, 0, 11000, 'unpaid', '2020-03-09 23:50:25', 'booked'),
-(9, '2020-04-18 11:53:56', '2020-04-19 23:16:19', 'QFTkq2W6HD', 'Shaira Cruz', '09164236238', 'shairacruz028@yahoo.com', '2020-04-19 00:00:00', '/uploads/1333896742.jpg', 'daytime', 56, 'Birthday Party', 11000, 2975, 6, 900, 0, 0, 0, 0, 11900, 'unpaid', '2020-04-18 11:53:56', 'booked');
+INSERT DELAYED IGNORE INTO `bookings` (`booking_id`, `booking_date`, `booking_update`, `booking_code`, `name`, `phone`, `email`, `checkin_date`, `payment_receipt`, `booking_time`, `total_guest`, `message`, `total_rate`, `reservation_fee`, `additional_guest`, `additional_guest_fee`, `additional_room`, `additional_gas`, `additional_refrigerator`, `additional_hours`, `grand_total`, `payment_status`, `payment_date`, `booking_status`) VALUES
+(10, '2020-05-02 23:32:09', '2020-05-02 23:40:28', 'nhFxIEUNyY', 'Shaira Yvonne Cruz', '09164236238', 'shaira.cruz.dev@gmail.com', '2020-05-03 00:00:00', '/uploads/440376843.JPG', 'daytime', 30, 'Small gathering for family reunion', 11000, 2825, 0, 0, 0, 0, 300, 0, 11300, 'unpaid', '2020-05-02 23:32:09', 'paid');
 
 --
 -- Indexes for dumped tables
@@ -124,7 +116,7 @@ ALTER TABLE `bookings`
 
 --
 -- AUTO_INCREMENT for dumped tables
---Upload Payment Receipt
+--
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -136,7 +128,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
