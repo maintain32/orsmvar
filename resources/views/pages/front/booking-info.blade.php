@@ -33,11 +33,11 @@
                     <div class="col-md-4 contact-left">
                         <div class="shipping heading">
                             <br>
-                            <p> Reservee : </p> <h4> {{$data['name']}} </h4>
-                            <p> Reserved Date : </p> <h4> {{$data['checkin_date']}} </h4>
-                            <p> Booking Time : </p> <h4> {{$data['booking_time']}} </h4>
-                            <p> Total Guest : </p> <h4> {{$data['total_guest']}}  </h4>
-                            <p> Event Description : </p> <h4> {{$data['message']}} </h4>
+                            <p> Reservee : </p> <h4> {{ $data['name'] }} </h4>
+                            <p> Reserved Date : </p> <h4> {{ $data['checkin_date'] }} </h4>
+                            <p> Booking Time : </p> <h4> {{ $data['booking_time'] }} </h4>
+                            <p> Total Guest : </p> <h4> {{ $data['total_guest'] }}  </h4>
+                            <p> Event Description : </p> <h4> {!! $data['message'] !!} </h4>
                         </div>
                         <br>
                         <br>

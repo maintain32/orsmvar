@@ -89,8 +89,16 @@
                                             <td class="center">{{$data->booking_date}}</td>
                                             <td class="center">{{$data->name}}</td>
                                             <td class="center">{{$data->total_guest}}</td>
-                                            <td class="center"><span
-                                                    class="label label-sm label-success">{{$data->payment_status}}</span>
+                                            <td class="center">
+                                            @if ($data->booking_status === 'booked' || $data->booking_status === 'confirmed')
+                                                <span class="label label-sm label-warning">Unpaid</span>
+                                            @elseif ($data->booking_status === 'payment sent')
+                                                <span class="label label-sm label-danger confirm-payment" data-id="{{ $data->booking_id }}">Confirm Payment</span>
+                                            @elseif ($data->booking_status === 'reserved')
+                                                <span class="label label-sm label-success">Reserved</span>
+                                            @else
+                                                <span class="label label-sm label-warning">Cancelled</span>
+                                            @endif
                                             </td>
                                             <td class="center">{{$data->checkin_date}}</td>
                                             <td class="center">
@@ -124,4 +132,5 @@
     <script src="{{ URL::asset('/js/admin/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('/js/admin/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ URL::asset('/js/admin/pages/table/table_data.js') }}"></script>
+    <script src="{{ URL::asset('/js/admin/pages/booking/view.js') }}"></script>
 @stop

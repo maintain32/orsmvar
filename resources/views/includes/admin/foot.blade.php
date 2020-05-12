@@ -21,3 +21,5 @@
 <!-- animation -->
 <script src="{{ URL::asset('/js/admin/pages/ui/animations.js') }}"></script>
 <!-- end js include path -->
+<script src="{{ URL::asset('js/front/lib/sweetalert2.all.min.js') }}"></script>
+

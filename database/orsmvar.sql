@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2020 at 11:49 AM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.7
+-- Generation Time: May 12, 2020 at 03:34 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -80,9 +80,9 @@ CREATE TABLE `bookings` (
   `additional_refrigerator` double NOT NULL,
   `additional_hours` double NOT NULL,
   `grand_total` double NOT NULL,
-  `payment_status` enum('unpaid','paid') NOT NULL DEFAULT 'unpaid',
+  `payment_status` enum('unpaid','partial payment','full payment') NOT NULL DEFAULT 'unpaid',
   `payment_date` datetime NOT NULL DEFAULT current_timestamp(),
-  `booking_status` enum('cancelled','reserved','booked','confirmed','paid') NOT NULL DEFAULT 'booked'
+  `booking_status` enum('cancelled','reserved','booked','confirmed','payment sent') NOT NULL DEFAULT 'booked'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -95,7 +95,8 @@ TRUNCATE TABLE `bookings`;
 --
 
 INSERT INTO `bookings` (`booking_id`, `booking_date`, `booking_update`, `booking_code`, `name`, `phone`, `email`, `checkin_date`, `payment_receipt`, `booking_time`, `total_guest`, `message`, `total_rate`, `reservation_fee`, `additional_guest`, `additional_guest_fee`, `additional_room`, `additional_gas`, `additional_refrigerator`, `additional_hours`, `grand_total`, `payment_status`, `payment_date`, `booking_status`) VALUES
-(10, '2020-05-02 23:32:09', '2020-05-02 23:40:28', 'nhFxIEUNyY', 'Shaira Yvonne Cruz', '09164236238', 'shaira.cruz.dev@gmail.com', '2020-05-03 00:00:00', '/uploads/440376843.JPG', 'daytime', 30, 'Small gathering for family reunion', 11000, 2825, 0, 0, 0, 0, 300, 0, 11300, 'unpaid', '2020-05-02 23:32:09', 'paid');
+(11, '2020-05-09 11:11:42', '2020-05-09 17:44:20', 'VuaJNAtCxu', 'Shaira Yvonne Cruz', '09164236238', 'shairacruz028@yahoo.com', '2020-05-10 00:00:00', '/uploads/1218179498.JPG', 'daytime', 54, 'Birthday Party - May 10 2020<br />\r\nTime of event : 12:00pm - 3:00pm', 11000, 3050, 4, 600, 0, 300, 300, 0, 12200, 'unpaid', '2020-05-09 11:11:42', 'payment sent'),
+(12, '2020-05-09 18:08:45', '2020-05-09 18:08:45', 'pEyVYfuTuJ', 'Paolo Delos Santos', '09054236895', 'pbgds17@gmail.com', '2020-05-10 00:00:00', NULL, 'overnight', 54, 'Overnight Pool Party For 54 pax', 13000, 4350, 4, 800, 3000, 300, 300, 0, 17400, 'unpaid', '2020-05-09 18:08:45', 'cancelled');
 
 --
 -- Indexes for dumped tables
@@ -128,7 +129,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
