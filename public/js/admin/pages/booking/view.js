@@ -8,7 +8,7 @@ $(document).ready(function () {
         showPaymentConfirmationModal : function (element) {
             $(element).click(function (e) {
                 (async () => {
-                  orsm  const { value: color } = await Swal.fire({
+                  const { value: color } = await Swal.fire({
                         title: 'Please confirm payment',
                         imageUrl: 'https://unsplash.it/400/200',
                         imageWidth: 400,
