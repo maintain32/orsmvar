@@ -72,7 +72,7 @@ class ReservationService extends BaseService
         }
         return [
             'status'  => 400,
-            'message' => 'Unable to upload receipt to database'
+            'message' => 'Unable to upload database'
         ];
     }
 
@@ -92,4 +92,46 @@ class ReservationService extends BaseService
         }
         return $this->aReturnData;
     }
+
+    public function sendPaymentConfirmation($aData) {
+        $bValidatePaymentDetails = $this->validatePaymentDetails($aData);
+        if ($bValidatePaymentDetails->passes())
+        {
+            $aBookingDetails = $this->oReservationRepository->getReservationId($aData['booking_id'])->toArray();
+            $aPayment = $this->formatPaymentData($aBookingDetails['grand_total'], $aData);
+            return $this->updateBookingDetail($aData['booking_id'], $aPayment);
+        }
+        return [
+            'status'  => 401,
+            'message' => $bValidatePaymentDetails->errors()->first()
+        ];
+    }
+
+    private function validatePaymentDetails($aData)
+    {
+        $rules = [
+            'payment_status' => 'required',
+            'payment_amount' => 'required|numeric',
+        ];
+
+        $messages = [
+            'payment_status.required'  => 'Invalid Payment Status',
+            'payment_amount.required'  => 'Invalid Payment Amount',
+            'payment_status.regex'  => 'Invalid Payment Status',
+            'payment_amount.numeric'  => 'Invalid Payment Amount',
+        ];
+
+        return Validator::make($aData, $rules, $messages);
+    }
+
+    private function formatPaymentData($dGrandTotal, $aData) {
+        return [
+            'payment_status' => str_replace('-', ' ', $aData['payment_status']),
+            'payment_amount' => $aData['payment_amount'],
+            'payment_balance' => $dGrandTotal - $aData['payment_amount'],
+            'booking_status' => 'reserved',
+            'payment_date' => date('Y-m-d H:i:s')
+        ];
+    }
+
 }

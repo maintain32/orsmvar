@@ -51,6 +51,10 @@ class Reservation extends Model
         'additional_refrigerator',
         'additional_hours',
         'grand_total',
-        'booking_status'
+        'booking_status',
+        'payment_status',
+        'payment_date',
+        'payment_amount',
+        'payment_balance'
     ];
 }

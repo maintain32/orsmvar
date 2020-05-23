@@ -46,4 +46,10 @@ class RestController extends BaseController
         $aData = $this->oRequest->toArray();
         return $this->oReservationService->getUploadedReceipt($aData);
     }
+
+    public function sendPaymentConfirmation()
+    {
+        $aData = $this->oRequest->toArray();
+        return $this->oReservationService->sendPaymentConfirmation($aData);
+    }
 }
