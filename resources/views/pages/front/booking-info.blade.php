@@ -24,7 +24,7 @@
                             <button type="button" class="btn btn-secondary">Reserved</button>
                         @endif
 
-                        @if($data['booking_status'] !== 'reserved' || $data['booking_status'] !== 'cancelled')
+                        @if($data['booking_status'] === 'booked' && $data['booking_status'] === 'confirmed')
                             <button type="button" class="btn btn-danger">Cancel Booking</button>
                         @endif
                     </h3>
@@ -112,6 +112,10 @@
                                 </div>
                                 <img src="{{ URL::asset('/img/select-photo.png') }}" alt="Select Receipt Image" class="img-fluid receipt-preview"/>
                             </form>
+                        @endif
+
+                        @if($data['booking_status'] === 'payment sent' || $data['booking_status'] === 'reserved')
+                            <img src="{{$data['payment_receipt']}}" alt="Select Receipt Image" class="img-fluid receipt-preview"/>
                         @endif
                     </div>
                     <br>
