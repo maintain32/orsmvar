@@ -34,7 +34,7 @@ Route::prefix('rest')->group(function () {
     Route::post('doLogin', 'RestController@doLogin');
     Route::post('uploadReceipt', 'RestController@uploadReceipt');
 
-    Route::group(['middleware' => 'adminsession'], function () {
-
+    Route::group(['middleware' => 'adminaccount'], function () {
+        Route::post('getUploadedReceipt', 'RestController@getUploadedReceipt');
     });
 });

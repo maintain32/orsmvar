@@ -75,4 +75,21 @@ class ReservationService extends BaseService
             'message' => 'Unable to upload receipt to database'
         ];
     }
+
+    public function getUploadedReceipt($aData)
+    {
+        $aData = $this->oReservationRepository->getReservationId($aData['reservation_id'])->toArray();
+        if (array_key_exists('payment_receipt', $aData) === true) {
+            if (empty($aData['payment_receipt']) === false) {
+                $this->aReturnData['message'] =  $aData['payment_receipt'];
+            } else {
+                $this->aReturnData['message'] = 'no payment receipt submitted yet';
+                $this->aReturnData['status'] = 401;
+            }
+        } else {
+            $this->aReturnData['message'] = 'booking doesn\'t exist';
+            $this->aReturnData['status'] = 401;
+        }
+        return $this->aReturnData;
+    }
 }

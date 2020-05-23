@@ -40,4 +40,10 @@ class RestController extends BaseController
         $aData = $this->oRequest->toArray();
         return $this->oReservationService->uploadReceipt($aData);
     }
+
+    public function getUploadedReceipt()
+    {
+        $aData = $this->oRequest->toArray();
+        return $this->oReservationService->getUploadedReceipt($aData);
+    }
 }

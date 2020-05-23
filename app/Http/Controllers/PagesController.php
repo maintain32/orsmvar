@@ -46,7 +46,7 @@ class PagesController extends Controller
     }
     public function showReservationPage($sBookingCode)
     {
-        $booking = $this->oReservationModel->getReservationId($sBookingCode);
+        $booking = $this->oReservationModel->getReservationCode($sBookingCode);
         return view('pages.front.booking-info', compact('booking'));
     }
     public function showDashboardPage()

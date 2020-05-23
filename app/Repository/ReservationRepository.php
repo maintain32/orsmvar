@@ -24,6 +24,11 @@ class ReservationRepository
 
     public function getReservationId($iId)
     {
+        return Reservation::where('booking_id', '=', $iId)->first();
+    }
+
+    public function getReservationCode($iId)
+    {
         return Reservation::where('booking_code', '=', $iId)->get();
     }
 

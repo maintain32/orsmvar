@@ -150,7 +150,7 @@ class ReservationController extends BaseController
 
     public function confirmBooking($sBookingCode)
     {
-        $aValidBooking = $this->oReservationModel->getReservationId($sBookingCode)->toArray();
+        $aValidBooking = $this->oReservationModel->getReservationCode($sBookingCode)->toArray();
         if (!empty($aValidBooking) === true && (string)$aValidBooking[0]['booking_status'] === 'booked') {
             $this->oReservationModel->updateBookingStatus($sBookingCode, 'confirmed');
         }
