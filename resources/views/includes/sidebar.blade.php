@@ -34,9 +34,9 @@
                     </a>
                 </li>
                 <li class="nav-item
-                    <?php echo e(Request::is('add/booking') ? 'active' : ''); ?>
-                    <?php echo e(Request::is('view/booking') ? 'active' : ''); ?>
-                    <?php echo e(Request::is('edit/booking') ? 'active' : ''); ?>
+                    <?php echo e(Request::is('booking/add') ? 'active' : ''); ?>
+                    <?php echo e(Request::is('booking/view') ? 'active' : ''); ?>
+                    <?php echo e(Request::is('booking/edit') ? 'active' : ''); ?>
                     ">
                     <a href="#" class="nav-link nav-toggle">
                         <i class="material-icons">business_center</i>
@@ -45,20 +45,20 @@
                         <span class="arrow open"></span>
                     </a>
                     <ul class="sub-menu">
-                        <li class="nav-item {{ Request::is('add/booking') ? 'active' : '' }}">
+                        <li class="nav-item {{ Request::is('booking/add') ? 'active' : '' }}">
                             <a href="{{ url('booking/add') }}" class="nav-link ">
                                 <span class="title">New Booking</span>
-                                <span class="{{ Request::is('add/booking') ? 'selected' : 'title' }}"></span>
+                                <span class="{{ Request::is('booking/add') ? 'selected' : 'title' }}"></span>
                             </a>
                         </li>
-                        <li class="nav-item {{ Request::is('view/booking') ? 'active' : '' }}">
+                        <li class="nav-item {{ Request::is('booking/view') ? 'active' : '' }}">
                             <a href="{{ url('booking/view') }}" class="nav-link ">
-                                <span class="{{ Request::is('view/booking') ? 'selected' : 'title' }}">View Booking</span>
+                                <span class="{{ Request::is('booking/view') ? 'selected' : 'title' }}">View Booking</span>
                             </a>
                         </li>
-                        <li class="nav-item {{ Request::is('edit/booking') ? 'active' : '' }}">
+                        <li class="nav-item {{ Request::is('booking/edit') ? 'active' : '' }}">
                             <a href="{{ url('booking/edit') }}" class="nav-link ">
-                                <span class="{{ Request::is('edit/booking') ? 'selected' : 'title' }}">Edit Booking</span>
+                                <span class="{{ Request::is('booking/edit') ? 'selected' : 'title' }}">Edit Booking</span>
                             </a>
                         </li>
                     </ul>

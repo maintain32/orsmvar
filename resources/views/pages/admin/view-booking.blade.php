@@ -39,7 +39,7 @@
                             <div class="row p-b-20">
                                 <div class="col-md-6 col-sm-6 col-6">
                                     <div class="btn-group">
-                                        <a href="new_booking.html" id="addRow" class="btn btn-info">
+                                        <a href="add" id="addRow" class="btn btn-info">
                                             Add New <i class="fa fa-plus"></i>
                                         </a>
                                     </div>
@@ -105,7 +105,7 @@
                                                 {{$data->booking_time}}
                                             </td>
                                             <td class="center">
-                                                <a href="edit_booking.html" class="btn btn-tbl-edit btn-xs">
+                                                <a href="edit" class="btn btn-tbl-edit btn-xs">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
                                                 <button class="btn btn-tbl-delete btn-xs">

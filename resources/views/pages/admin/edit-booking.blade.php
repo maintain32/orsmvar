@@ -7,7 +7,7 @@
         <div class="page-bar">
             <div class="page-title-breadcrumb">
                 <div class=" pull-left">
-                    <div class="page-title">Edit Room Booking</div>
+                    <div class="page-title">Edit Booking</div>
                 </div>
                 <ol class="breadcrumb page-breadcrumb pull-right">
                     <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
@@ -23,7 +23,7 @@
             <div class="col-sm-12">
                 <div class="card-box">
                     <div class="card-head">
-                        <header>Edit Room Booking</header>
+                        <header>Edit Booking</header>
                         <button id="panel-button"
                                 class="mdl-button mdl-js-button mdl-button--icon pull-right"
                                 data-upgraded=",MaterialButton">

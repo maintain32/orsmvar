@@ -13,15 +13,15 @@
                 <div class="contact-top heading">
                     <h3>Booking Reference : {{$data['booking_code']}} &nbsp;
                         @if($data['booking_status'] === 'booked')
-                            <button type="button" class="btn btn-warning">Waiting for confirmation</button>
+                            <button type="button" class="btn btn-warning" disabled>Waiting for confirmation</button>
                         @elseif($data['booking_status'] === 'confirmed')
-                            <button type="button" class="btn btn-warning">Waiting for payment</button>
+                            <button type="button" class="btn btn-warning" disabled>Waiting for payment</button>
                         @elseif($data['booking_status'] === 'paid')
-                            <button type="button" class="btn btn-warning">Confirmation of Payment Receipt</button>
+                            <button type="button" class="btn btn-warning" disabled>Confirmation of Payment Receipt</button>
                         @elseif($data['booking_status'] === 'cancelled')
-                            <button type="button" class="btn btn-danger">Cancelled</button>
+                            <button type="button" class="btn btn-danger" disabled>Cancelled</button>
                         @elseif($data['booking_status'] === 'reserved')
-                            <button type="button" class="btn btn-secondary">Reserved</button>
+                            <button type="button" class="btn btn-success" disabled>Reserved</button>
                         @endif
 
                         @if($data['booking_status'] === 'booked' && $data['booking_status'] === 'confirmed')
