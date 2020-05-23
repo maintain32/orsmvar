@@ -91,6 +91,9 @@ class ReservationController extends BaseController
         $aData['grand_total']     = $aData['total_rate'] + $aData['additional_guest_fee'] + $aData['additional_room'] + $aData['additional_gas'] + $aData['additional_refrigerator'];
         $aData['reservation_fee'] =  $aData['grand_total'] * .25;
 
+        $aData['payment_amount'] = 0;
+        $aData['payment_balance'] = 0;
+
         return $aData;
     }
 

@@ -73,7 +73,30 @@ $(document).ready(function () {
                 method: 'POST',
                 data: oViewBooking.oPaymentDetails
             }).done(function(data) {
-                console.log(data);
+                if (data['status'] === 200) {
+                    Swal.fire({
+                        title: 'Successfully Updated Database',
+                        type: 'success',
+                        timer: 1000,
+                        onBeforeOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+                    location.reload();
+                } else {
+                    Swal.fire({
+                        title: 'Error Occured',
+                        type: 'error',
+                        text: data['message'],
+                        timer: 1000,
+                        onBeforeOpen: () => {
+                            Swal.showLoading();
+                        },
+                        onClose: () => {
+                            Swal.stopTimer();
+                        }
+                    });
+                }
             });
         }
     };

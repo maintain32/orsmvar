@@ -36,7 +36,7 @@ class ReservationRepository
     {
         return Reservation::where('checkin_date', '=', $checkin)
             ->where('booking_time', '=', $bookingtime)
-            ->where('booking_status', '!=', 'cancelled')
+            ->whereNotIn('booking_status', ['payment_sent','reserved'])
             ->get();
     }
 

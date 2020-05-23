@@ -1,8 +1,16 @@
 $(document).on('ready', function(){
     let oImageSelect = {
         init : function(){
+            this.cancelBooking('.cancel-booking');
             this.fileSelect();
             this.submitSelect();
+        },
+
+        cancelBooking : function(element){
+            $(element).click(function (e) {
+                e.preventDefault();
+                alert('cancel');
+            });
         },
 
         submitSelect : function(){

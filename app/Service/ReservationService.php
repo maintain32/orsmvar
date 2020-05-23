@@ -25,7 +25,7 @@ class ReservationService extends BaseService
         if ($aValidateData->passes())
         {
             $aBooking = [
-                'booking_status'  => 'paid',
+                'booking_status'  => 'payment sent',
                 'payment_receipt' => $this->uploadImages($aData)
             ];
             return $this->updateBookingDetail($aData['booking_id'], $aBooking);
@@ -67,12 +67,12 @@ class ReservationService extends BaseService
         if ($bResult === 1) {
             return [
                 'status'  => 200,
-                'message' => $bResult
+                'message' => 'Booking Successfully Updated'
             ];
         }
         return [
             'status'  => 400,
-            'message' => 'Unable to upload database'
+            'message' => 'Unable to Update Database'
         ];
     }
 

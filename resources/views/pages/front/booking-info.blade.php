@@ -16,7 +16,7 @@
                             <button type="button" class="btn btn-warning" disabled>Waiting for confirmation</button>
                         @elseif($data['booking_status'] === 'confirmed')
                             <button type="button" class="btn btn-warning" disabled>Waiting for payment</button>
-                        @elseif($data['booking_status'] === 'paid')
+                        @elseif($data['booking_status'] === 'payment sent')
                             <button type="button" class="btn btn-warning" disabled>Confirmation of Payment Receipt</button>
                         @elseif($data['booking_status'] === 'cancelled')
                             <button type="button" class="btn btn-danger" disabled>Cancelled</button>
@@ -24,8 +24,8 @@
                             <button type="button" class="btn btn-success" disabled>Reserved</button>
                         @endif
 
-                        @if($data['booking_status'] === 'booked' && $data['booking_status'] === 'confirmed')
-                            <button type="button" class="btn btn-danger">Cancel Booking</button>
+                        @if($data['booking_status'] === 'booked' || $data['booking_status'] === 'confirmed')
+                            <button type="button" class="btn btn-danger cancel-booking">Cancel Booking</button>
                         @endif
                     </h3>
                 </div>
