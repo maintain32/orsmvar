@@ -52,4 +52,9 @@ class RestController extends BaseController
         $aData = $this->oRequest->toArray();
         return $this->oReservationService->sendPaymentConfirmation($aData);
     }
+
+    public function getDashboardData()
+    {
+        return $this->oReservationService->getDashboardData();
+    }
 }

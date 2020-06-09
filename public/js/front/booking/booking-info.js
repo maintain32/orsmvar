@@ -1,5 +1,5 @@
 $(document).on('ready', function(){
-    let oImageSelect = {
+    var oImageSelect = {
         init : function(){
             this.cancelBooking('.cancel-booking');
             this.fileSelect();

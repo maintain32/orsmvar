@@ -1,33 +1,60 @@
 $(document).ready(function()
 {
+    var oDashboard = {
+        aReportData : [],
+        init : function() {
+            this.getData();
+            this.setCancelledReport();
+            this.setIncomeReport();
+            this.setReservedBooking();
+            this.setEventSummary();
+        },
+        getData : function() {
+            $.ajax({
+                url: '/rest/getDashboardData',
+                method: 'POST',
+            }).done(function(data) {
+                console.log(data);
+            });
+        },
+        setCancelledReport : function(aCancelKey, aCancelValue) {
+
+        },
+        setIncomeReport : function(aIncomeKey, aIncomeValue) {
+
+        },
+        setReservedBooking : function(aReserveKey, aReserveValue) {
+
+        },
+        setEventSummary : function(aEventsKey, aEventsValue) {
+
+        }
+    };
+
+    oDashboard.init();
+
     new Chart(document.getElementById("bar-chart"), {
         type: 'bar',
         data: {
             labels: ["2013", "2014", "2015", "2016"],
             datasets: [
                 {
-                    label: "Cost",
+                    label: "Bookings",
                     backgroundColor: "#01B8AA",
                     data: [
                         randomScalingFactor(),
                         randomScalingFactor(),
                         randomScalingFactor(),
                         randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor()
                     ]
                 }, {
-                    label: "Earing",
+                    label: "Refunds",
                     backgroundColor: "#5F6B6D",
                     data: [
                         randomScalingFactor(),
                         randomScalingFactor(),
                         randomScalingFactor(),
                         randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor()
                     ]
                 }
             ]
@@ -35,7 +62,7 @@ $(document).ready(function()
         options: {
             title: {
                 display: true,
-                text: 'University Earing & Cost (in Millions)'
+                text: 'Resort\'s Cancelled Bookings & Refund'
             }
         }
     });
@@ -48,7 +75,7 @@ $(document).ready(function()
         data: {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
             datasets: [{
-                label: 'Cost',
+                label: 'Bookings',
                 data: [
                     randomScalingFactor(),
                     randomScalingFactor(),
@@ -60,7 +87,7 @@ $(document).ready(function()
                 ],
                 backgroundColor: "rgba(255,61,103,0.3)"
             }, {
-                label: 'Earning',
+                label: 'Earnings',
                 data: [
                     randomScalingFactor(),
                     randomScalingFactor(),

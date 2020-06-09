@@ -37,5 +37,6 @@ Route::prefix('rest')->group(function () {
     Route::group(['middleware' => 'adminaccount'], function () {
         Route::post('getUploadedReceipt', 'RestController@getUploadedReceipt');
         Route::post('sendPaymentConfirmation', 'RestController@sendPaymentConfirmation');
+        Route::post('getDashboardData', 'RestController@getDashboardData');
     });
 });

@@ -72,4 +72,59 @@ class ReservationRepository
             return false;
         }
     }
+
+    public function getMonthlyBooking()
+    {
+        try{
+            return Reservation::select(DB::raw('count(*) as bookings_count, EXTRACT(YEAR_MONTH FROM booking_date) as month'))
+                ->where('booking_status', array('reserved', 'payment sent'))
+                ->groupBy('month')
+                ->orderBy('month', 'asc')
+                ->limit(4)
+                ->get();
+        } catch(\Exception $e) {
+            logger('ReservationRepository@getMonthlyCancelledBooking error : ' . $e);
+            return false;
+        }
+    }
+
+    public function getMonthlyCancelledBooking()
+    {
+        try{
+            return Reservation::select(DB::raw('count(*) as bookings_count, EXTRACT(YEAR_MONTH FROM booking_date) as month'))
+                ->where('booking_status', 'cancelled')
+                ->groupBy('month')
+                ->orderBy('month', 'asc')
+                ->limit(4)
+                ->get();
+        } catch(\Exception $e) {
+            logger('ReservationRepository@getMonthlyCancelledBooking error : ' . $e);
+            return false;
+        }
+    }
+
+    public function getMonthlyIncome()
+    {
+        try{
+            return Reservation::select(DB::raw('SUM(grand_total) as monthly_income, EXTRACT(YEAR_MONTH FROM booking_date) as month'))
+                ->where('booking_status', array('reserved', 'payment sent'))
+                ->groupBy('month')
+                ->orderBy('month', 'desc')
+                ->limit(6)
+                ->get();
+        } catch(\Exception $e) {
+            logger('ReservationRepository@getMonthlyCancelledBooking error : ' . $e);
+            return false;
+        }
+    }
+
+    public function getReservedBooking()
+    {
+        return [];
+    }
+
+    public function getUpcomingEvents()
+    {
+        return [];
+    }
 }

@@ -134,4 +134,13 @@ class ReservationService extends BaseService
         ];
     }
 
+    public function getDashboardData() {
+        return [
+            'cancelled_booking' => $this->oReservationRepository->getMonthlyCancelledBooking(),
+            'monthly_booking'   => $this->oReservationRepository->getMonthlyBooking(),
+            'monthly_income'    => $this->oReservationRepository->getMonthlyIncome(),
+            'reserved_bookings' => $this->oReservationRepository->getReservedBooking(),
+            'upcoming_events'   => $this->oReservationRepository->getUpcomingEvents()
+        ];
+    }
 }

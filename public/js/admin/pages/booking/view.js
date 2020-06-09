@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    let oViewBooking = {
+    var oViewBooking = {
         sUploadPaymentLink : '',
         oPaymentDetails : {},
         iReservationId : '',
