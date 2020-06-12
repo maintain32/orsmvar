@@ -88,21 +88,6 @@ class ReservationRepository
         }
     }
 
-    public function getMonthlyRefund()
-    {
-        try{
-            return Reservation::select(DB::raw('SUM(payment_amount) as monthly_income, EXTRACT(YEAR_MONTH FROM booking_date) as month'))
-                ->where('booking_status', 'reserved')
-                ->groupBy('month')
-                ->orderBy('month', 'desc')
-                ->limit(6)
-                ->get();
-        } catch(\Exception $e) {
-            logger('ReservationRepository@getMonthlyRefund error : ' . $e);
-            return false;
-        }
-    }
-
     public function getMonthlyBooking()
     {
         try{
