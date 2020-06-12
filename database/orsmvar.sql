@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2020 at 03:34 PM
+-- Generation Time: Jun 12, 2020 at 08:05 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -82,7 +82,9 @@ CREATE TABLE `bookings` (
   `grand_total` double NOT NULL,
   `payment_status` enum('unpaid','partial payment','full payment') NOT NULL DEFAULT 'unpaid',
   `payment_date` datetime NOT NULL DEFAULT current_timestamp(),
-  `booking_status` enum('cancelled','reserved','booked','confirmed','payment sent') NOT NULL DEFAULT 'booked'
+  `booking_status` enum('cancelled','reserved','booked','confirmed','payment sent') NOT NULL DEFAULT 'booked',
+  `payment_amount` double NOT NULL,
+  `payment_balance` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -94,9 +96,13 @@ TRUNCATE TABLE `bookings`;
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`booking_id`, `booking_date`, `booking_update`, `booking_code`, `name`, `phone`, `email`, `checkin_date`, `payment_receipt`, `booking_time`, `total_guest`, `message`, `total_rate`, `reservation_fee`, `additional_guest`, `additional_guest_fee`, `additional_room`, `additional_gas`, `additional_refrigerator`, `additional_hours`, `grand_total`, `payment_status`, `payment_date`, `booking_status`) VALUES
-(11, '2020-05-09 11:11:42', '2020-05-09 17:44:20', 'VuaJNAtCxu', 'Shaira Yvonne Cruz', '09164236238', 'shairacruz028@yahoo.com', '2020-05-10 00:00:00', '/uploads/1218179498.JPG', 'daytime', 54, 'Birthday Party - May 10 2020<br />\r\nTime of event : 12:00pm - 3:00pm', 11000, 3050, 4, 600, 0, 300, 300, 0, 12200, 'unpaid', '2020-05-09 11:11:42', 'payment sent'),
-(12, '2020-05-09 18:08:45', '2020-05-09 18:08:45', 'pEyVYfuTuJ', 'Paolo Delos Santos', '09054236895', 'pbgds17@gmail.com', '2020-05-10 00:00:00', NULL, 'overnight', 54, 'Overnight Pool Party For 54 pax', 13000, 4350, 4, 800, 3000, 300, 300, 0, 17400, 'unpaid', '2020-05-09 18:08:45', 'cancelled');
+INSERT INTO `bookings` (`booking_id`, `booking_date`, `booking_update`, `booking_code`, `name`, `phone`, `email`, `checkin_date`, `payment_receipt`, `booking_time`, `total_guest`, `message`, `total_rate`, `reservation_fee`, `additional_guest`, `additional_guest_fee`, `additional_room`, `additional_gas`, `additional_refrigerator`, `additional_hours`, `grand_total`, `payment_status`, `payment_date`, `booking_status`, `payment_amount`, `payment_balance`) VALUES
+(11, '2020-05-09 11:11:42', '2020-05-23 16:22:03', 'VuaJNAtCxu', 'Shaira Yvonne Cruz', '09164236238', 'shairacruz028@yahoo.com', '2020-05-10 00:00:00', '/uploads/1218179498.JPG', 'daytime', 54, 'Birthday Party - May 10 2020<br />\r\nTime of event : 12:00pm - 3:00pm', 11000, 3050, 4, 600, 0, 300, 300, 0, 12200, 'full payment', '2020-05-23 16:22:03', 'reserved', 6454, 5746),
+(12, '2020-05-09 18:08:45', '2020-05-09 18:08:45', 'pEyVYfuTuJ', 'Paolo Delos Santos', '09054236895', 'pbgds17@gmail.com', '2020-05-10 00:00:00', NULL, 'overnight', 54, 'Overnight Pool Party For 54 pax', 13000, 4350, 4, 800, 3000, 300, 300, 0, 17400, 'unpaid', '2020-05-09 18:08:45', 'cancelled', 0, 0),
+(13, '2020-05-23 17:05:38', '2020-05-23 17:12:01', 'ryxeXe6QHO', 'Marvinr Bonifacio', '09174575986', 'sean@yahoo.com', '2020-05-24 00:00:00', '/uploads/1785876618.JPG', 'daytime', 43, 'Small Gathering', 11000, 2750, 0, 0, 0, 0, 0, 0, 11000, 'partial payment', '2020-05-23 17:12:01', 'reserved', 2999, 8001),
+(14, '2020-06-09 20:11:33', '2020-06-09 20:11:33', 'cOKa0BKOFh', 'Sean D Cruz', '09174575986', 'sean@yahoo.com', '2020-06-10 00:00:00', NULL, 'daytime', 54, '40th Birthday', 11000, 2900, 4, 600, 0, 0, 0, 0, 11600, 'unpaid', '2020-06-09 20:11:33', 'booked', 0, 0),
+(15, '2020-06-13 01:53:34', '2020-06-13 02:04:03', 'gWICAvzZfy', 'Shaira Cruz', '09164236238', 'shairacruz028@yahoo.com', '2020-06-15 00:00:00', '/uploads/1641383056.jpg', 'daytime', 54, 'Pool Party', 11000, 2900, 4, 600, 0, 0, 0, 0, 11600, 'partial payment', '2020-06-13 02:04:03', 'reserved', 1000, 10600),
+(16, '2020-06-13 01:54:49', '2020-06-13 02:03:12', 'SvAdoDyVYq', 'Marvine Bonifacio', '03457789554', 'shairacruz028@yahoo.com', '2020-06-15 00:00:00', '/uploads/1515197859.jpg', 'overnight', 42, 'Overnight Party', 13000, 4000, 0, 0, 3000, 0, 0, 0, 16000, 'unpaid', '2020-06-13 01:54:49', 'payment sent', 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -129,7 +135,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

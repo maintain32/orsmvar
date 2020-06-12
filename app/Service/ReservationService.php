@@ -2,6 +2,7 @@
 namespace App\Service;
 
 use App\Repository\ReservationRepository;
+use App\Library\CommonLibrary;
 use Validator;
 use Mail;
 
@@ -135,12 +136,34 @@ class ReservationService extends BaseService
     }
 
     public function getDashboardData() {
-        return [
-            'cancelled_booking' => $this->oReservationRepository->getMonthlyCancelledBooking(),
-            'monthly_booking'   => $this->oReservationRepository->getMonthlyBooking(),
-            'monthly_income'    => $this->oReservationRepository->getMonthlyIncome(),
-            'reserved_bookings' => $this->oReservationRepository->getReservedBooking(),
-            'upcoming_events'   => $this->oReservationRepository->getUpcomingEvents()
+        $aData = [
+            'cancelled_booking' => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
+            'monthly_refund'    => $this->oReservationRepository->getMonthlyRefund()->toArray(),
+            'monthly_booking'   => $this->oReservationRepository->getMonthlyBooking()->toArray(),
+            'monthly_income'    => $this->oReservationRepository->getMonthlyIncome()->toArray(),
+            'reserved_bookings' => $this->oReservationRepository->getReservedBooking()->toArray(),
+            'upcoming_events'   => $this->oReservationRepository->getUpcomingEvents()->toArray()
         ];
+        return $this->formatDashboardData($aData);
+    }
+
+    private function formatDashboardData($aData) {
+        $aData['cancelled_booking'] = $this->changeDateFormat($aData['cancelled_booking']);
+        $aData['monthly_refund'] = $this->changeDateFormat($aData['monthly_refund']);
+        $aData['monthly_booking'] = $this->changeDateFormat($aData['monthly_booking']);
+        $aData['monthly_income'] = $this->changeDateFormat($aData['monthly_income']);
+        return $aData;
+    }
+
+    private function changeDateFormat($aData) {
+        foreach ($aData as $mKey => $mValue) {
+            if (CommonLibrary::checkValidArray($mValue) === true &&
+                array_key_exists('month', $mValue) === true &&
+                empty($mKey['month']) === false) {
+                $aData[$mKey]['month'] = CommonLibrary::changeDateFormat($aData[$mKey]['month'], 'Ym', 'F Y');
+            }
+        }
+        return $aData;
+
     }
 }
