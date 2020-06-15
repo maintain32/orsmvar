@@ -51,7 +51,9 @@ class PagesController extends Controller
     }
     public function showDashboardPage()
     {
-        return view('pages.admin.dashboard');
+        $booking = $this->oReservationModel->getReservedBooking();
+        logger($booking);
+        return view('pages.admin.dashboard', compact('booking'));
     }
     public function doLogout()
     {

@@ -133,4 +133,5 @@
 
 @section('jsfiles')
     <script src="{{ URL::asset('js/front/booking/booking-info.js') }}"></script>
+    <script src="{{ URL::asset('/js/front/reserve.js') }}"></script>
 @stop

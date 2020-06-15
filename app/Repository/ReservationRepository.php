@@ -73,11 +73,71 @@ class ReservationRepository
         }
     }
 
+    public function getMonthlyBookedBooking()
+    {
+        try{
+            return Reservation::select(DB::raw('count(*) as bookings_count, EXTRACT(YEAR_MONTH FROM booking_date) as month'))
+                ->where('booking_status', 'booked')
+                ->groupBy('month')
+                ->orderBy('month', 'asc')
+                ->limit(4)
+                ->get();
+        } catch(\Exception $e) {
+            logger('ReservationRepository@getMonthlyCancelledBooking error : ' . $e);
+            return false;
+        }
+    }
+
+    public function getMonthlyConfirmedBooking()
+    {
+        try{
+            return Reservation::select(DB::raw('count(*) as bookings_count, EXTRACT(YEAR_MONTH FROM booking_date) as month'))
+                ->where('booking_status', 'confirmed')
+                ->groupBy('month')
+                ->orderBy('month', 'asc')
+                ->limit(4)
+                ->get();
+        } catch(\Exception $e) {
+            logger('ReservationRepository@getMonthlyCancelledBooking error : ' . $e);
+            return false;
+        }
+    }
+
+    public function getMonthlyPaymentSentBooking()
+    {
+        try{
+            return Reservation::select(DB::raw('count(*) as bookings_count, EXTRACT(YEAR_MONTH FROM booking_date) as month'))
+                ->where('booking_status', 'payment sent')
+                ->groupBy('month')
+                ->orderBy('month', 'asc')
+                ->limit(4)
+                ->get();
+        } catch(\Exception $e) {
+            logger('ReservationRepository@getMonthlyCancelledBooking error : ' . $e);
+            return false;
+        }
+    }
+
     public function getMonthlyCancelledBooking()
     {
         try{
             return Reservation::select(DB::raw('count(*) as bookings_count, EXTRACT(YEAR_MONTH FROM booking_date) as month'))
                 ->where('booking_status', 'cancelled')
+                ->groupBy('month')
+                ->orderBy('month', 'asc')
+                ->limit(4)
+                ->get();
+        } catch(\Exception $e) {
+            logger('ReservationRepository@getMonthlyCancelledBooking error : ' . $e);
+            return false;
+        }
+    }
+
+    public function getMonthlyReservedBooking()
+    {
+        try{
+            return Reservation::select(DB::raw('count(*) as bookings_count, EXTRACT(YEAR_MONTH FROM booking_date) as month'))
+                ->where('booking_status', 'reserved')
                 ->groupBy('month')
                 ->orderBy('month', 'asc')
                 ->limit(4)
@@ -121,7 +181,7 @@ class ReservationRepository
     public function getReservedBooking()
     {
         try{
-            return Reservation::select('booking_id', 'booking_time', 'message', 'grand_total', 'booking_status')
+            return Reservation::select(DB::raw('booking_id, name, DATE_FORMAT(checkin_date, \'%b %e %Y\') AS checkin_date, booking_time, message, grand_total, payment_status, booking_status'))
                 ->whereIn('booking_status', array('reserved', 'payment sent'))
                 ->where('checkin_date', '>=', date("Y-m-d"))
                 ->orderBy('checkin_date', 'asc')
@@ -129,21 +189,6 @@ class ReservationRepository
                 ->get();
         } catch(\Exception $e) {
             logger('ReservationRepository@getReservedBooking error : ' . $e);
-            return false;
-        }
-    }
-
-    public function getUpcomingEvents()
-    {
-        try{
-            return Reservation::select('name', 'payment_status')
-                ->whereIn('booking_status', array('reserved', 'payment sent'))
-                ->where('checkin_date', '>=', date("Y-m-d"))
-                ->orderBy('checkin_date', 'asc')
-                ->limit(6)
-                ->get();
-        } catch(\Exception $e) {
-            logger('ReservationRepository@getUpcomingEvents error : ' . $e);
             return false;
         }
     }

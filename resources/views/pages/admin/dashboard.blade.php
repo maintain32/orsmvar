@@ -70,76 +70,27 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Type</th>
-                                        <th>Details</th>
-                                        <th>Rent</th>
-                                        <th>status</th>
+                                        <th>Booking Time</th>
+                                        <th>Event</th>
+                                        <th>Grand Total</th>
+                                        <th>Booking Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @forelse($booking as $key => $data)
                                     <tr>
-                                        <td>102</td>
-                                        <td>Premier</td>
-                                        <td>1 Queen-sized bed, arm chair</td>
-                                        <td>$25</td>
+
+                                        <td>{{$data->booking_id}}</td>
+                                        <td>{{$data->booking_time}}</td>
+                                        <td>{{$data->message}}</td>
+                                        <td>{{$data->grand_total}}</td>
                                         <td>
-                                            <span class="label label-sm label-success">Available</span>
+                                            <span class="label label-sm label-success">{{$data->booking_status}}</span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>202</td>
-                                        <td>Deluxe</td>
-                                        <td>1 Queen-sized bed, patio chairs</td>
-                                        <td>$40</td>
-                                        <td>
-                                            <span class="label label-sm label-danger"> Booked </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>104</td>
-                                        <td>Twin</td>
-                                        <td>2 single-beds </td>
-                                        <td>$45</td>
-                                        <td>
-                                            <span class="label label-sm label-success">Available</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>706</td>
-                                        <td>Triple</td>
-                                        <td>1 Queen-sized bed &amp; 1 single bed</td>
-                                        <td>$62</td>
-                                        <td>
-                                            <span class="label label-sm label-warning">Maintenance</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>102</td>
-                                        <td>Premier</td>
-                                        <td>1 Queen-sized bed, arm chair</td>
-                                        <td>$25</td>
-                                        <td>
-                                            <span class="label label-sm label-success">Available</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>202</td>
-                                        <td>Deluxe</td>
-                                        <td>1 Queen-sized bed, patio chairs</td>
-                                        <td>$40</td>
-                                        <td>
-                                            <span class="label label-sm label-danger"> Booked </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>104</td>
-                                        <td>Twin</td>
-                                        <td>2 single-beds </td>
-                                        <td>$45</td>
-                                        <td>
-                                            <span class="label label-sm label-danger">Booked</span>
-                                        </td>
-                                    </tr>
+                                    @empty
+
+                                    @endforelse
                                     </tbody>
                                 </table>
                             </div>
@@ -155,123 +106,24 @@
                     <div class="card-body ">
                         <div class="row">
                             <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto;"><ul class="empListWindow small-slimscroll-style" style="overflow: hidden; width: auto;">
+                                    @forelse($booking as $key => $data)
                                     <li>
                                         <div class="prog-avatar">
+                                            {{$data->checkin_date}}
                                             <img src="assets/img/user/user1.jpg" alt="" width="40" height="40">
                                         </div>
                                         <div class="details">
                                             <div class="title">
-                                                <a href="#">Rajesh Pandya</a>
+                                                <a href="#">{{$data->name}}</a>
                                             </div>
                                             <div>
-                                                <span class="clsAvailable">Available</span>
+                                                <span class="clsAvailable">{{$data->payment_status}}</span>
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="prog-avatar">
-                                            <img src="assets/img/user/user2.jpg" alt="" width="40" height="40">
-                                        </div>
-                                        <div class="details">
-                                            <div class="title">
-                                                <a href="#">Sarah Smith</a>
-                                            </div>
-                                            <div>
-                                                <span class="clsAvailable">Available</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="prog-avatar">
-                                            <img src="assets/img/user/user3.jpg" alt="" width="40" height="40">
-                                        </div>
-                                        <div class="details">
-                                            <div class="title">
-                                                <a href="#">John Deo</a>
-                                            </div>
-                                            <div>
-                                                <span class="clsNotAvailable">Not Available</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="prog-avatar">
-                                            <img src="assets/img/user/user4.jpg" alt="" width="40" height="40">
-                                        </div>
-                                        <div class="details">
-                                            <div class="title">
-                                                <a href="#">Jay Soni</a>
-                                            </div>
-                                            <div>
-                                                <span class="clsOnLeave">On Leave</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="prog-avatar">
-                                            <img src="assets/img/user/user5.jpg" alt="" width="40" height="40">
-                                        </div>
-                                        <div class="details">
-                                            <div class="title">
-                                                <a href="#">Jacob Ryan</a>
-                                            </div>
-                                            <div>
-                                                <span class="clsNotAvailable">Not Available</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="prog-avatar">
-                                            <img src="assets/img/user/user6.jpg" alt="" width="40" height="40">
-                                        </div>
-                                        <div class="details">
-                                            <div class="title">
-                                                <a href="#">Megha Trivedi</a>
-                                            </div>
-                                            <div>
-                                                <span class="clsAvailable">Available</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="prog-avatar">
-                                            <img src="assets/img/user/user2.jpg" alt="" width="40" height="40">
-                                        </div>
-                                        <div class="details">
-                                            <div class="title">
-                                                <a href="#">Sarah Smith</a>
-                                            </div>
-                                            <div>
-                                                <span class="clsAvailable">Available</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="prog-avatar">
-                                            <img src="assets/img/user/user3.jpg" alt="" width="40" height="40">
-                                        </div>
-                                        <div class="details">
-                                            <div class="title">
-                                                <a href="#">John Deo</a>
-                                            </div>
-                                            <div>
-                                                <span class="clsNotAvailable">Not Available</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="prog-avatar">
-                                            <img src="assets/img/user/user4.jpg" alt="" width="40" height="40">
-                                        </div>
-                                        <div class="details">
-                                            <div class="title">
-                                                <a href="#">Jay Soni</a>
-                                            </div>
-                                            <div>
-                                                <span class="clsOnLeave">On Leave</span>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    @empty
+
+                                    @endforelse
                                 </ul><div class="slimScrollBar" style="background: rgb(158, 165, 171); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 193.202px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
                             <div class="full-width text-center p-t-10">
                                 <a href="#" class="btn purple btn-outline btn-circle margin-0">View All</a>

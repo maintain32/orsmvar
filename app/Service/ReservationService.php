@@ -139,21 +139,24 @@ class ReservationService extends BaseService
         $aData = [
             'booked_bookings' => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
             'confirmed_booking' => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
-            'payment_booking' => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
+            'paid_booking' => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
             'cancelled_booking' => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
             'reserved_booking' => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
             'monthly_booking'   => $this->oReservationRepository->getMonthlyBooking()->toArray(),
-            'monthly_income'    => $this->oReservationRepository->getMonthlyIncome()->toArray(),
-            'reserved_bookings' => $this->oReservationRepository->getReservedBooking()->toArray(),
-            'upcoming_events'   => $this->oReservationRepository->getUpcomingEvents()->toArray()
+            'monthly_income'    => $this->oReservationRepository->getMonthlyIncome()->toArray()
         ];
         return $this->formatDashboardData($aData);
     }
 
     private function formatDashboardData($aData) {
+        $aData['booked_bookings']   = $this->changeDateFormat($aData['booked_bookings']);
+        $aData['confirmed_booking'] = $this->changeDateFormat($aData['confirmed_booking']);
+        $aData['paid_booking']   = $this->changeDateFormat($aData['paid_booking']);
         $aData['cancelled_booking'] = $this->changeDateFormat($aData['cancelled_booking']);
-        $aData['monthly_booking'] = $this->changeDateFormat($aData['monthly_booking']);
-        $aData['monthly_income'] = $this->changeDateFormat($aData['monthly_income']);
+        $aData['reserved_booking']  = $this->changeDateFormat($aData['reserved_booking']);
+        $aData['monthly_booking']   = $this->changeDateFormat($aData['monthly_booking']);
+        $aData['monthly_income']    = $this->changeDateFormat($aData['monthly_income']);
+        logger($aData);
         return $aData;
     }
 
@@ -161,11 +164,15 @@ class ReservationService extends BaseService
         foreach ($aData as $mKey => $mValue) {
             if (CommonLibrary::checkValidArray($mValue) === true &&
                 array_key_exists('month', $mValue) === true) {
-                logger('change format');
                 $aData[$mKey]['month'] = CommonLibrary::changeDateFormat($aData[$mKey]['month'], 'Ym', 'F Y');
             }
         }
-        return $aData;
+        $aCount = array_column($aData, 'bookings_count');
+        $aMonths = array_column($aData, 'month');
+        return [
+            'month' => $aMonths,
+            'count' => $aCount
+        ];
 
     }
 }
