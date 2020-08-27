@@ -85,11 +85,11 @@ class ReservationService extends BaseService
                 $this->aReturnData['message'] =  $aData['payment_receipt'];
             } else {
                 $this->aReturnData['message'] = 'no payment receipt submitted yet';
-                $this->aReturnData['status'] = 401;
+                $this->aReturnData['status']  = 401;
             }
         } else {
             $this->aReturnData['message'] = 'booking doesn\'t exist';
-            $this->aReturnData['status'] = 401;
+            $this->aReturnData['status']  = 401;
         }
         return $this->aReturnData;
     }
@@ -118,8 +118,8 @@ class ReservationService extends BaseService
         $messages = [
             'payment_status.required'  => 'Invalid Payment Status',
             'payment_amount.required'  => 'Invalid Payment Amount',
-            'payment_status.regex'  => 'Invalid Payment Status',
-            'payment_amount.numeric'  => 'Invalid Payment Amount',
+            'payment_status.regex'     => 'Invalid Payment Status',
+            'payment_amount.numeric'   => 'Invalid Payment Amount',
         ];
 
         return Validator::make($aData, $rules, $messages);
@@ -127,21 +127,21 @@ class ReservationService extends BaseService
 
     private function formatPaymentData($dGrandTotal, $aData) {
         return [
-            'payment_status' => str_replace('-', ' ', $aData['payment_status']),
-            'payment_amount' => $aData['payment_amount'],
+            'payment_status'  => str_replace('-', ' ', $aData['payment_status']),
+            'payment_amount'  => $aData['payment_amount'],
             'payment_balance' => $dGrandTotal - $aData['payment_amount'],
-            'booking_status' => 'reserved',
-            'payment_date' => date('Y-m-d H:i:s')
+            'booking_status'  => 'reserved',
+            'payment_date'    => date('Y-m-d H:i:s')
         ];
     }
 
     public function getDashboardData() {
         $aData = [
-            'booked_bookings' => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
+            'booked_bookings'   => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
             'confirmed_booking' => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
-            'paid_booking' => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
+            'paid_booking'      => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
             'cancelled_booking' => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
-            'reserved_booking' => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
+            'reserved_booking'  => $this->oReservationRepository->getMonthlyCancelledBooking()->toArray(),
             'monthly_booking'   => $this->oReservationRepository->getMonthlyBooking()->toArray(),
             'monthly_income'    => $this->oReservationRepository->getMonthlyIncome()->toArray()
         ];
@@ -151,7 +151,7 @@ class ReservationService extends BaseService
     private function formatDashboardData($aData) {
         $aData['booked_bookings']   = $this->changeDateFormat($aData['booked_bookings']);
         $aData['confirmed_booking'] = $this->changeDateFormat($aData['confirmed_booking']);
-        $aData['paid_booking']   = $this->changeDateFormat($aData['paid_booking']);
+        $aData['paid_booking']      = $this->changeDateFormat($aData['paid_booking']);
         $aData['cancelled_booking'] = $this->changeDateFormat($aData['cancelled_booking']);
         $aData['reserved_booking']  = $this->changeDateFormat($aData['reserved_booking']);
         $aData['monthly_booking']   = $this->changeDateFormat($aData['monthly_booking']);

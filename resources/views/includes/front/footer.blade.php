@@ -37,7 +37,7 @@
 					<script type="text/javascript">
 						var randomIG = function() {
 							var links = [
-								"https://www.facebook.com/merlitasprivateresort/"
+								"https://www.instagram.com/merlitasprivateresort/"
 							];
 
 							var max = (links.length);
@@ -51,9 +51,9 @@
 			<div class="col-md-4 footer-left">
 				<h3>CONTACT US</h3>
 				<ul>
-					<li>info@blossomflowershop.com</li>
-					<li>+888 8888</li>
-					<li>Anonas St., Sta Mesa, Manila</li>
+					<li>merlitasvenueandprivateresort@gmail.com</li>
+					<li>+862-654-7595</li>
+					<li>220 E B.Manuel St, Rodriguez, 1860 Rizal</li>
 				</ul>
 			</div>
 			<div class="col-md-4 footer-left">
@@ -71,7 +71,7 @@
 <div class="footer-text">
 	<div class="container">
 		<div class="footer-main">
-			<p class="footer-class">Copyright 2020. All Rights Reserved, Merlita's Venue & Private Resort.
+			<p class="footer-class">All Rights Reserved, Merlita's Venue & Private Resort.
 			</p>
 		</div>
 	</div>

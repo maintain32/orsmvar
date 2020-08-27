@@ -15,6 +15,7 @@ Route::get('/', 'PagesController@showHomePage');
 Route::get('/reserve', 'PagesController@showReservePage');
 Route::get('/reservation/{sBookingCode}', 'PagesController@showReservationPage');
 Route::get('/about', 'PagesController@showAboutPage');
+Route::get('/test', 'PagesController@showTestPage');
 
 Route::get('/confirmBooking/{sBookingCode}', 'ReservationController@confirmBooking');
 Route::get('/login', 'PagesController@showLoginPage');

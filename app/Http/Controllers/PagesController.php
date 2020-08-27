@@ -55,6 +55,10 @@ class PagesController extends Controller
         logger($booking);
         return view('pages.admin.dashboard', compact('booking'));
     }
+    public function showTestPage()
+    {
+        return view('pages.test.home');
+    }
     public function doLogout()
     {
         session()->flush();
